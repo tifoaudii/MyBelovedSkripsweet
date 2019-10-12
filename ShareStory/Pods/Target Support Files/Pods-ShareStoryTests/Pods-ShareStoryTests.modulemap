@@ -1,0 +1,6 @@
+framework module Pods_ShareStoryTests {
+  umbrella header "Pods-ShareStoryTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
