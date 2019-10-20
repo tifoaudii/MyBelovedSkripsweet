@@ -18,27 +18,19 @@ class MapVC: UIViewController {
     private let mapVM = MapVM()
     private let disposeBag = DisposeBag()
     private let locationManager = CLLocationManager()
-    private let regionRadius: CLLocationDistance = 10000
+    private let regionRadius: CLLocationDistance = 1000
     private var konselors = [Konselor]()
+    private let mapViewIdentifier = "MapViewAnnotationIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configureMapView()
-        self.fetchAllKonselors()
         self.bindViewModel()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.checkLocationAuthorization()
-    }
-    
-    fileprivate func fetchAllKonselors() {
-        self.mapVM.getKonselors()
-    }
-    
+   
     fileprivate func bindViewModel() {
+        self.mapVM.observeKonselor()
         self.mapVM
             .hasError
             .drive(onNext: { [unowned self] hasError in
@@ -50,13 +42,15 @@ class MapVC: UIViewController {
         self.mapVM
             .konselors
             .drive(onNext: { [unowned self] konselors in
-                self.konselors = konselors
+                self.konselors.removeAll()
+                self.konselors.append(contentsOf: konselors)
                 self.refreshMapView()
             }).disposed(by: disposeBag)
     }
     
     fileprivate func configureMapView() {
         self.mapView.delegate = self
+        self.mapView.showsUserLocation = true
         guard let userLocation = locationManager.location?.coordinate else {
             return
         }
@@ -73,26 +67,56 @@ class MapVC: UIViewController {
         }
     }
     
-    fileprivate func showErrorMessage() {
-        let alertController = UIAlertController(title: "Uppss", message: "Sepertinya ada gangguan dikit, coba lagi ya", preferredStyle: .alert)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     @IBAction func centeredUserLocation(_ sender: Any) {
         guard let userLocation = locationManager.location?.coordinate else {
             return
         }
         
-        let coordinateRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: regionRadius * 2, longitudinalMeters: regionRadius * 2)
+        let coordinateRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         self.mapView.setRegion(coordinateRegion, animated: true)
     }
 }
 
 extension MapVC: MKMapViewDelegate {
     
-    func refreshMapView() {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard let annotation = annotation as? Konselor else { return nil }
+        var view: MKMarkerAnnotationView
+        
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: mapViewIdentifier) as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+            view.displayPriority = .required
+        } else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: mapViewIdentifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: -5)
+            view.displayPriority = .required
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        guard let konselor = view.annotation as? Konselor else {
+            return
+        }
+        
+        let detailKonselorVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "DetailKonselor") as DetailKonselorVC
+        detailKonselorVC.loadKonselor(konselor: konselor)
+        self.navigationController?.present(detailKonselorVC, animated: true, completion: nil)
+    }
+    
+    fileprivate func refreshMapView() {
         let currentAnnotations = self.mapView.annotations
         self.mapView.removeAnnotations(currentAnnotations)
         self.mapView.addAnnotations(self.konselors)
+    }
+    
+    fileprivate func removeAllAnnotations() {
+        let currentAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(currentAnnotations)
     }
 }

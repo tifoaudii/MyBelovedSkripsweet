@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import IQKeyboardManagerSwift
+import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

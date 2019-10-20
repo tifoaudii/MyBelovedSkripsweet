@@ -20,9 +20,13 @@ class SplashVM {
       return _updateUserLocationStatus.asDriver()
    }
    
-   
-   func updateUserLocation(latitude: Double, longitude: Double) {
+   func updateUserLocation(latitude: Double, longitude: Double, failure: @escaping ()-> Void) {
+      DispatchQueue.global(qos: .utility).async {
+         DataService.shared.userLocation = CLLocation(latitude: latitude, longitude: longitude)
+      }
+      
       guard let currentUser = Auth.auth().currentUser else {
+         failure()
          return
       }
       

@@ -36,4 +36,10 @@ class MapVM {
             self?._hasError.accept(true)
         }
     }
+    
+    func observeKonselor() {
+        DataService.shared.REF_KONSELOR.observe(.value) { [weak self] (_) in
+            self?.getKonselors()
+        }
+    }
 }

@@ -9,11 +9,17 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import MapKit
+import CoreLocation
 
 class DataService {
     
     static let shared = DataService()
     private init(){}
+    var userDefault = UserDefaults.standard
+    
+    //MARK:- Global State
+    var userLocation: CLLocation?
     
     //MARK:- DB Ref
     var REF_USER: DatabaseReference { return _REF_USER }
@@ -47,6 +53,25 @@ class DataService {
         }
     }
     
+    func loginUser(email: String, password: String, success: @escaping () -> (), failure: @escaping ()->()) {
+        Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+            if error != nil {
+                failure()
+            }
+            success()
+        }
+    }
+    
+    func logout(completion: @escaping (_ success: Bool)-> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+        } catch {
+            print(error)
+            completion(false)
+        }
+    }
+    
     func postNewUser(uid: String, userAccount: Dictionary<String, String>) {
         REF_USER.child(uid).updateChildValues(userAccount)
     }
@@ -59,7 +84,7 @@ class DataService {
     func getKonselor(success: @escaping (_ konselor: [Konselor]) -> (), failure: @escaping ()-> ()) {
         
         var konselorArray = [Konselor]()
-        REF_KONSELOR.observeSingleEvent(of: .value) { (dataSnapshot) in
+        REF_KONSELOR.observeSingleEvent(of: .value) { [unowned self] (dataSnapshot) in
             guard let rawKonselor = dataSnapshot.children.allObjects as? [DataSnapshot] else {
                 failure()
                 return
@@ -72,15 +97,64 @@ class DataService {
                 let latitude = konselor.childSnapshot(forPath: "location").childSnapshot(forPath: "latitude").value as! Double
                 let longitude = konselor.childSnapshot(forPath: "location").childSnapshot(forPath: "longitude").value as! Double
                 let isOnline = konselor.childSnapshot(forPath: "isOnline").value as! Bool
+                let distance = self.calculateDistance(konselor: latitude, konselor: longitude)
                 
-                let newKonselor = Konselor(name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline)
+                let newKonselor = Konselor(name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance)
                 
                 if newKonselor.isOnline {
                     konselorArray.append(newKonselor)
                 }
             }
-            
+            konselorArray = konselorArray.sorted(by: { $0.distance < $1.distance })
             success(konselorArray)
         }
+    }
+    
+    func calculateDistance(konselor latitude: Double, konselor longitude: Double) -> Double {
+        guard let userCoordinate = self.userLocation else {
+            return 0
+        }
+        let konselorCoordinate = CLLocation(latitude: latitude, longitude: longitude)
+        let distanceInKm: Double = userCoordinate.distance(from: konselorCoordinate) / 1000
+        return round(100 * distanceInKm)/100
+    }
+    
+    func getCurrentUser(completion: @escaping (_ isUserExist: Bool) -> Void) {
+        let currentUser = Auth.auth().currentUser
+        let isUserExist = (currentUser != nil) ? true:false
+        completion(isUserExist)
+    }
+    
+    func getUserProfile(completion: @escaping (_ user: User)-> Void, failure: @escaping (_ fail: Bool) -> Void) {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            failure(true)
+            return
+        }
+        
+        REF_USER.observeSingleEvent(of: .value) { (dataSnapshot) in
+            guard let usersSnapshot = dataSnapshot.children.allObjects as? [DataSnapshot] else {
+                failure(true)
+                return
+            }
+            
+            for user in usersSnapshot {
+                if user.key == uid {
+                    let name = user.childSnapshot(forPath: "name").value as! String
+                    let birthday = user.childSnapshot(forPath: "birthday").value as! String
+                    let email = user.childSnapshot(forPath: "email").value as! String
+                    let gender = user.childSnapshot(forPath: "gender").value as! String
+                    
+                    let currentUser = User(name: name, birthDay: birthday, email: email, gender: Gender(rawValue: gender)!, password: "")
+                    completion(currentUser)
+                    break
+                }
+            }
+        }
+    }
+    
+    private func calculateUserAge(birthDay: String) -> Int {
+        
+        return 0
     }
 }

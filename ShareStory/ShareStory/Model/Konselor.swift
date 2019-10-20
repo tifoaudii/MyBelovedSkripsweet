@@ -17,9 +17,10 @@ class Konselor: NSObject, MKAnnotation {
     var longitude: Double
     var isOnline: Bool
     var coordinate: CLLocationCoordinate2D
+    var distance: Double
+    var title: String?
     
-    init(name: String, address: String, university: String, latitude: Double, longitude: Double, isOnline: Bool) {
-        
+    init(name: String, address: String, university: String, latitude: Double, longitude: Double, isOnline: Bool, distance: Double = 0) {
         self.name = name
         self.address = address
         self.university = university
@@ -27,6 +28,9 @@ class Konselor: NSObject, MKAnnotation {
         self.longitude = longitude
         self.isOnline = isOnline
         self.coordinate = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+        self.title = self.name
+        self.distance = distance
         super.init()
     }
+
 }

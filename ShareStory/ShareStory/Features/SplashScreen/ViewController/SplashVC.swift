@@ -20,20 +20,16 @@ class SplashVC: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      self.configureLocationManager()
       self.getUserLocation()
       self.bindViewModel()
-   }
-   
-   override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      
-      self.checkLocationAuthorization()
    }
    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       guard let mainVC = segue.destination as? UITabBarController else {
          return
       }
+      
       mainVC.modalPresentationStyle = .fullScreen
    }
    
@@ -54,12 +50,25 @@ class SplashVC: UIViewController {
          return
       }
       
-      self.splashVM.updateUserLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+      self.splashVM.updateUserLocation(latitude: userLocation.latitude, longitude: userLocation.longitude, failure: {
+         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [unowned self] in
+            self.performSegue(withIdentifier: "main_segue", sender: nil)
+         }
+      })
+   }
+}
+
+extension SplashVC: CLLocationManagerDelegate {
+   
+   fileprivate func configureLocationManager() {
+      self.locationManager.delegate = self
+      self.locationManager.startUpdatingLocation()
+      if CLLocationManager.authorizationStatus() == .notDetermined {
+         locationManager.requestAlwaysAuthorization()
+      }
    }
    
-   fileprivate func checkLocationAuthorization() {
-       if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-           locationManager.requestWhenInUseAuthorization()
-       }
+   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+      self.getUserLocation()
    }
 }
