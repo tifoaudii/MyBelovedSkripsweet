@@ -10,6 +10,7 @@ import Foundation
 import MapKit
 
 class Konselor: NSObject, MKAnnotation {
+    var id: String
     var name: String
     var address: String
     var university: String
@@ -20,7 +21,8 @@ class Konselor: NSObject, MKAnnotation {
     var distance: Double
     var title: String?
     
-    init(name: String, address: String, university: String, latitude: Double, longitude: Double, isOnline: Bool, distance: Double = 0) {
+    init(id: String, name: String, address: String, university: String, latitude: Double, longitude: Double, isOnline: Bool, distance: Double = 0) {
+        self.id = id
         self.name = name
         self.address = address
         self.university = university

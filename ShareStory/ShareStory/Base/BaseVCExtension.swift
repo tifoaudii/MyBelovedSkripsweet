@@ -26,7 +26,13 @@ extension UIViewController {
     func navigataToMainScreen() {
         let mainVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "Main")
         mainVC.modalPresentationStyle = .fullScreen
-        self.navigationController?.present(mainVC, animated: true, completion: nil)
+        self.present(mainVC, animated: true, completion: nil)
+    }
+    
+    func navigateToKonselorScreen() {
+        let konselorVC = UIStoryboard.init(name: "Konselor", bundle: nil).instantiateViewController(identifier: "KonselorLoginVC")
+        konselorVC.modalPresentationStyle = .fullScreen
+        self.present(konselorVC, animated: true, completion: nil)
     }
     
     func navigateToLoginGuide() {
