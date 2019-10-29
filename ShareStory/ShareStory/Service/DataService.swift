@@ -17,6 +17,17 @@ class DataService {
     static let shared = DataService()
     private init(){}
     let userId = Auth.auth().currentUser?.uid
+    var userDefault = UserDefaults.standard
+    
+    var konselorUid: String {
+        get { return userDefault.value(forKey: "konselor_uid") as! String }
+        set { userDefault.set(newValue, forKey: "konselor_uid") }
+    }
+    
+    var isKonselorLoggedIn: Bool {
+        get { return userDefault.bool(forKey: "konselor_loggedIn") }
+        set { userDefault.set(newValue, forKey: "konselor_loggedIn") }
+    }
     
     //MARK:- Global State
     var userLocation: CLLocation?
@@ -250,8 +261,9 @@ class DataService {
             for order in ordersSnapshot {
                 let konselorId = order.childSnapshot(forPath: "konselorId").value as! String
                 let patientId = order.childSnapshot(forPath: "senderId").value as! String
+                let status = order.childSnapshot(forPath: "status").value as! String
                 
-                if konselorId == uid {
+                if konselorId == uid && status == OrderStatus.waiting.rawValue  {
                     ownerOrder["\(patientId)"] = order.key
                 }
             }

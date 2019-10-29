@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class WelcomeVC: UIViewController {
 
     override func viewDidLoad() {
@@ -19,6 +20,12 @@ class WelcomeVC: UIViewController {
     }
     
     @IBAction func konselorButtonDidClicked(_ sender: Any) {
-        self.navigateToKonselorScreen()
+        if DataService.shared.isKonselorLoggedIn {
+            let konselorMainVC = UIStoryboard.init(name: "Konselor", bundle: nil).instantiateViewController(identifier: "KonselorMain") as! UITabBarController
+            konselorMainVC.modalPresentationStyle = .fullScreen
+            self.present(konselorMainVC, animated: true, completion: nil)
+        } else {
+            self.navigateToKonselorScreen()
+        }
     }
 }

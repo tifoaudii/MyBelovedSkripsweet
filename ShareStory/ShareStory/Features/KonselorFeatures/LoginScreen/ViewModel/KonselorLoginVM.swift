@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import CoreLocation
+import FirebaseAuth
 
 class KonselorLoginVM {
     
@@ -35,10 +36,20 @@ class KonselorLoginVM {
             self?._isLoading.accept(false)
             self?._hasError.accept(false)
             self?._isLoginSuccess.accept(true)
+            self?.storeKonselorUid()
         }) { [weak self] in
             self?._isLoading.accept(false)
             self?._isLoginSuccess.accept(false)
             self?._hasError.accept(true)
         }
+    }
+    
+    fileprivate func storeKonselorUid() {
+        guard let konselorUid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        DataService.shared.konselorUid = konselorUid
+        DataService.shared.isKonselorLoggedIn = true
     }
 }

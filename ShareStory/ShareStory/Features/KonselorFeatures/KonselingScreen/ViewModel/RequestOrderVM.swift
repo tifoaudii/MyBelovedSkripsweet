@@ -16,6 +16,10 @@ struct RequestOrderVM {
         self.order = order
     }
     
+    var orderId: String {
+        return order.orderId
+    }
+    
     var orderImageView: UIImage {
         let image = UIImage(named: (self.order.sender.gender == .male) ? "boy": "girl")
         return image!

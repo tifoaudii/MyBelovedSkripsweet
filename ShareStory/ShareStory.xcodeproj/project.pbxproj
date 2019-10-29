@@ -24,8 +24,8 @@
 		295E75E9234F05A2002612A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E75E8234F05A2002612A4 /* User.swift */; };
 		295E75EC234F0C69002612A4 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E75EB234F0C69002612A4 /* DataService.swift */; };
 		295E75F0234F0DA0002612A4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E75EF234F0DA0002612A4 /* Config.swift */; };
-		296A550A2363F9DD00785EE9 /* KonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296A55092363F9DD00785EE9 /* KonselingVC.swift */; };
-		296A550C2363F9EA00785EE9 /* KonselingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296A550B2363F9EA00785EE9 /* KonselingVM.swift */; };
+		296A550A2363F9DD00785EE9 /* OrderKonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296A55092363F9DD00785EE9 /* OrderKonselingVC.swift */; };
+		296A550C2363F9EA00785EE9 /* OrderKonselingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296A550B2363F9EA00785EE9 /* OrderKonselingVM.swift */; };
 		296A550F2363FA0900785EE9 /* KonselingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296A550E2363FA0900785EE9 /* KonselingCell.swift */; };
 		296F45C8235222DF009477FA /* DetailKonselorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296F45C7235222DF009477FA /* DetailKonselorVC.swift */; };
 		29757F7A2360732F00799CDD /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29757F792360732F00799CDD /* Order.swift */; };
@@ -46,6 +46,7 @@
 		299D1278236171940036A626 /* KonselorLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299D1277236171940036A626 /* KonselorLoginVM.swift */; };
 		29A69EEC236032CF0067968B /* OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EEB236032CF0067968B /* OrderVC.swift */; };
 		29A69EEE236032E00067968B /* OrderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EED236032E00067968B /* OrderVM.swift */; };
+		29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */; };
 		29FF4A2E234D53800043AE81 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FF4A2D234D53800043AE81 /* SplashVC.swift */; };
 		95A3DEEB7FCE22698A515263 /* Pods_ShareStoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D0BA16B2E3B842E1FF3292 /* Pods_ShareStoryTests.framework */; };
 		A1D09C39A059FB52BB49A020 /* Pods_ShareStory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1703B16990516F91F8E49C4 /* Pods_ShareStory.framework */; };
@@ -80,8 +81,8 @@
 		295E75E8234F05A2002612A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		295E75EB234F0C69002612A4 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		295E75EF234F0DA0002612A4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		296A55092363F9DD00785EE9 /* KonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselingVC.swift; sourceTree = "<group>"; };
-		296A550B2363F9EA00785EE9 /* KonselingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselingVM.swift; sourceTree = "<group>"; };
+		296A55092363F9DD00785EE9 /* OrderKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderKonselingVC.swift; sourceTree = "<group>"; };
+		296A550B2363F9EA00785EE9 /* OrderKonselingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderKonselingVM.swift; sourceTree = "<group>"; };
 		296A550E2363FA0900785EE9 /* KonselingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselingCell.swift; sourceTree = "<group>"; };
 		296F45C7235222DF009477FA /* DetailKonselorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKonselorVC.swift; sourceTree = "<group>"; };
 		29757F792360732F00799CDD /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		299D1277236171940036A626 /* KonselorLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorLoginVM.swift; sourceTree = "<group>"; };
 		29A69EEB236032CF0067968B /* OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVC.swift; sourceTree = "<group>"; };
 		29A69EED236032E00067968B /* OrderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVM.swift; sourceTree = "<group>"; };
+		29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrderKonselingVC.swift; sourceTree = "<group>"; };
 		29FF4A2D234D53800043AE81 /* SplashVC.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; tabWidth = 3; };
 		3718A352D644BF34BA561DC5 /* Pods-ShareStory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareStory.release.xcconfig"; path = "Target Support Files/Pods-ShareStory/Pods-ShareStory.release.xcconfig"; sourceTree = "<group>"; };
 		3BBBB8DA54789D3D6DCD0985 /* Pods-ShareStoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareStoryTests.release.xcconfig"; path = "Target Support Files/Pods-ShareStoryTests/Pods-ShareStoryTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -288,7 +290,8 @@
 		296A55072363F9BE00785EE9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				296A55092363F9DD00785EE9 /* KonselingVC.swift */,
+				296A55092363F9DD00785EE9 /* OrderKonselingVC.swift */,
+				29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -296,7 +299,7 @@
 		296A55082363F9C600785EE9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				296A550B2363F9EA00785EE9 /* KonselingVM.swift */,
+				296A550B2363F9EA00785EE9 /* OrderKonselingVM.swift */,
 				2935030223645F5D00F0C571 /* RequestOrderVM.swift */,
 			);
 			path = ViewModel;
@@ -764,7 +767,7 @@
 				296A550F2363FA0900785EE9 /* KonselingCell.swift in Sources */,
 				295E75EC234F0C69002612A4 /* DataService.swift in Sources */,
 				298C76D02352D734001DB2C7 /* ListKonselorVC.swift in Sources */,
-				296A550A2363F9DD00785EE9 /* KonselingVC.swift in Sources */,
+				296A550A2363F9DD00785EE9 /* OrderKonselingVC.swift in Sources */,
 				295E75F0234F0DA0002612A4 /* Config.swift in Sources */,
 				295E75DD234EEC4B002612A4 /* LoginVC.swift in Sources */,
 				2994F2FE234C3B03009CBBF2 /* AppDelegate.swift in Sources */,
@@ -775,6 +778,7 @@
 				298C76D52352E0BA001DB2C7 /* ListKonselorVM.swift in Sources */,
 				2935030323645F5D00F0C571 /* RequestOrderVM.swift in Sources */,
 				295E75DF234EEC56002612A4 /* LoginVM.swift in Sources */,
+				29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */,
 				29757F7A2360732F00799CDD /* Order.swift in Sources */,
 				290708F62354511200A0DEE9 /* ProfileVM.swift in Sources */,
 				2994F300234C3B03009CBBF2 /* SceneDelegate.swift in Sources */,
@@ -787,7 +791,7 @@
 				295E75D8234EE37D002612A4 /* SplashVM.swift in Sources */,
 				29A69EEC236032CF0067968B /* OrderVC.swift in Sources */,
 				299D1276236171760036A626 /* KonselorLoginVC.swift in Sources */,
-				296A550C2363F9EA00785EE9 /* KonselingVM.swift in Sources */,
+				296A550C2363F9EA00785EE9 /* OrderKonselingVM.swift in Sources */,
 				29FF4A2E234D53800043AE81 /* SplashVC.swift in Sources */,
 				298C76D32352D751001DB2C7 /* ListKonselorCell.swift in Sources */,
 				290708F42354510700A0DEE9 /* ProfileVC.swift in Sources */,
