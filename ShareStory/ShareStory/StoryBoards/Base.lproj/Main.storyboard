@@ -237,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIe-PS-Skq">
-                                <rect key="frame" x="45" y="260.5" width="324" height="241"/>
+                                <rect key="frame" x="45" y="229.5" width="324" height="303"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="konselor" translatesAutoresizingMaskIntoConstraints="NO" id="07z-Dc-hhz">
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="145"/>
@@ -257,6 +257,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84c-jv-vAs">
+                                        <rect key="frame" x="0.0" y="258" width="324" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Ogp-wi-Bkm"/>
+                                        </constraints>
+                                        <state key="normal" title="Batalkan">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonDidClicked:" destination="Mjh-8j-5ne" eventType="touchUpInside" id="NfJ-8f-fCM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -419,6 +432,20 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kOQ-xq-XyI" id="s8n-XW-CF0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wj-Ci-ZSf">
+                                                    <rect key="frame" x="348" y="25" width="46" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="46" id="Mzc-kj-Vi5"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7Wj-Ci-ZSf" firstAttribute="top" secondItem="s8n-XW-CF0" secondAttribute="topMargin" constant="14" id="IcJ-UU-GoF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7Wj-Ci-ZSf" secondAttribute="bottom" constant="14" id="jq3-0r-4jF"/>
+                                                <constraint firstItem="7Wj-Ci-ZSf" firstAttribute="trailing" secondItem="s8n-XW-CF0" secondAttribute="trailingMargin" id="sJL-Yo-No9"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -770,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFd-rk-TaV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4303" y="957"/>
+            <point key="canvasLocation" x="4303" y="1073"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UaM-v1-qBC">
@@ -785,7 +812,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYx-sq-aKk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4303" y="1740"/>
+            <point key="canvasLocation" x="2938" y="1917"/>
         </scene>
         <!--Login GuideVC-->
         <scene sceneID="zuH-BW-VdL">

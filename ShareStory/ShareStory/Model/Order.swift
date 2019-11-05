@@ -12,6 +12,7 @@ enum OrderStatus: String {
     case waiting = "Menunggu"
     case refused = "Ditolak"
     case accepted = "Diterima"
+    case cancel = "Batal"
 }
 
 struct Order {
@@ -23,4 +24,5 @@ struct Order {
 struct RequestOrder {
     var orderId: String
     var sender: User
+    var senderId: String
 }

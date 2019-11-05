@@ -37,6 +37,7 @@ class DataService {
     var REF_USER: DatabaseReference { return _REF_USER }
     var REF_KONSELOR: DatabaseReference { return _REF_KONSELOR }
     var REF_ORDER: DatabaseReference { return _REF_ORDER }
+    var REF_CHATROOM: DatabaseReference { return _REF_CHATROOM }
     
     //MARK:- Helper Function
     func registerUser(newUser: User, success: @escaping (_ success: Bool)-> Void, failure: @escaping (_ fail: Bool)-> Void) {
@@ -239,10 +240,37 @@ class DataService {
         let updatedProfile = [
             "name": name,
             "birthday": birthday,
-            "gender": gender.rawValue
+            "gender": gender.rawValue,
+            "info": ""
         ]
         
         REF_USER.child(uid).updateChildValues(updatedProfile)
+        completion(true)
+    }
+    
+    func acceptOrder(order: RequestOrderVM,completion: @escaping (_ chatroom: ChatRoom)->()) {
+        REF_ORDER.child(order.orderId).updateChildValues(["status": OrderStatus.accepted.rawValue])
+        
+        DispatchQueue.main.async { [unowned self] in
+            self.REF_CHATROOM.childByAutoId()
+                .updateChildValues([
+                    "patientId": order.patientId,
+                    "konselorId": self.konselorUid
+                ])
+            
+            self.REF_CHATROOM.observeSingleEvent(of: .value) { (dataSnapshot) in
+                guard let chatRoomSnapshot = dataSnapshot.children.allObjects.last as? DataSnapshot else {
+                    return
+                }
+                
+                let newChatRoom = ChatRoom(id: chatRoomSnapshot.key, patientId: order.patientId, konselorId: self.konselorUid)
+                completion(newChatRoom)
+            }
+        }
+    }
+    
+    func declineOrder(orderId: String, message: String, completion: @escaping (_ success: Bool)->()) {
+        REF_ORDER.child(orderId).updateChildValues(["status": OrderStatus.refused.rawValue, "info": message])
         completion(true)
     }
     
@@ -254,9 +282,7 @@ class DataService {
                 return
             }
             
-            guard let uid = self.userId else {
-                return
-            }
+            let uid = self.konselorUid
             
             for order in ordersSnapshot {
                 let konselorId = order.childSnapshot(forPath: "konselorId").value as! String
@@ -275,6 +301,7 @@ class DataService {
             }
         }
     }
+    
     
     func decodeDataIntoRequestOrder(with orders: Dictionary<String,String>, completion: @escaping (_ orders: [RequestOrder])-> (), failure: @escaping ()->()) {
         
@@ -296,11 +323,59 @@ class DataService {
                     
                     let patient = User(name: name, birthDay: birthday, email: email, gender: Gender(rawValue: gender)!, password: "")
                     let orderKey = orders["\(user.key)"]
-                    let requestOrder = RequestOrder(orderId: orderKey ?? "", sender: patient)
+                    let requestOrder = RequestOrder(orderId: orderKey ?? "", sender: patient, senderId: user.key)
                     requestOrders.append(requestOrder)
                 }
             }
             completion(requestOrders)
         }
+    }
+    
+    func fetchAllMessages(
+        chatRoom: ChatRoom,
+        completion: @escaping (_ messages: [Message], _ patient: User)-> Void,
+        failure: @escaping ()-> Void) {
+        
+        var messages = [Message]()
+        
+        REF_CHATROOM.child(chatRoom.id).child("messages").observeSingleEvent(of: .value) { (messageSnapshot) in
+            guard let messageSnapshot = messageSnapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            
+            for message in messageSnapshot {
+                let content = message.childSnapshot(forPath: "content").value as! String
+                let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                let senderType = message.childSnapshot(forPath: "senderType").value as! String
+                
+                let newMessage = Message(senderId: senderId, content: content, senderType: SenderType(rawValue: senderType)!)
+                messages.append(newMessage)
+            }
+        }
+        
+        self.getPatientProfile(with: chatRoom.patientId, completion: { (patient) in
+            let patient: User = patient
+            DispatchQueue.main.async {
+                completion(messages,patient)
+            }
+        }) {
+            failure()
+        }
+    }
+    
+    func sendMessage(message: Message, chatRoom: ChatRoom, success: @escaping (_ success: Bool)->()) {
+        
+        let newMessage = [
+            "content": message.content,
+            "senderId": message.senderId,
+            "senderType": message.senderType.rawValue
+        ]
+        REF_CHATROOM
+            .child(chatRoom.id)
+            .child("messages")
+            .childByAutoId()
+            .updateChildValues(newMessage)
+        
+        success(true)
     }
 }

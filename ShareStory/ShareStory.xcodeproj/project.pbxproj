@@ -9,13 +9,20 @@
 /* Begin PBXBuildFile section */
 		290708F42354510700A0DEE9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290708F32354510700A0DEE9 /* ProfileVC.swift */; };
 		290708F62354511200A0DEE9 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290708F52354511200A0DEE9 /* ProfileVM.swift */; };
+		2908A084236E9EF500252C8F /* MessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908A083236E9EF500252C8F /* MessageVM.swift */; };
 		292C853723535F3A00E215A4 /* LoginGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292C853623535F3A00E215A4 /* LoginGuideVC.swift */; };
 		2935030323645F5D00F0C571 /* RequestOrderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2935030223645F5D00F0C571 /* RequestOrderVM.swift */; };
 		293A2727235192480063D107 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293A2726235192480063D107 /* MapVC.swift */; };
 		293A27292351925A0063D107 /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293A27282351925A0063D107 /* MapVM.swift */; };
 		293A272B2351AF340063D107 /* Konselor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293A272A2351AF340063D107 /* Konselor.swift */; };
+		293F81EF236DD100001F5436 /* ChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F81EE236DD100001F5436 /* ChatLabel.swift */; };
+		293F81F2236DD301001F5436 /* SenderKonselorChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F81F1236DD301001F5436 /* SenderKonselorChatCell.swift */; };
+		293F81F4236DD3D7001F5436 /* PatientKonselorChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F81F3236DD3D7001F5436 /* PatientKonselorChatCell.swift */; };
 		2941423D235831440030E227 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941423C235831440030E227 /* EditProfileVC.swift */; };
 		295669AC234EDF6D00F2E14F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 295669AB234EDF6D00F2E14F /* GoogleService-Info.plist */; };
+		295E65D8236A83440042FEE8 /* ListKonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E65D7236A83440042FEE8 /* ListKonselingVC.swift */; };
+		295E65DA236A834F0042FEE8 /* ListKonselingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E65D9236A834F0042FEE8 /* ListKonselingVM.swift */; };
+		295E65DD236A83DA0042FEE8 /* ListKonselingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E65DC236A83DA0042FEE8 /* ListKonselingCell.swift */; };
 		295E75D8234EE37D002612A4 /* SplashVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E75D7234EE37D002612A4 /* SplashVM.swift */; };
 		295E75DD234EEC4B002612A4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E75DC234EEC4B002612A4 /* LoginVC.swift */; };
 		295E75DF234EEC56002612A4 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E75DE234EEC56002612A4 /* LoginVM.swift */; };
@@ -29,6 +36,10 @@
 		296A550F2363FA0900785EE9 /* KonselingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296A550E2363FA0900785EE9 /* KonselingCell.swift */; };
 		296F45C8235222DF009477FA /* DetailKonselorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296F45C7235222DF009477FA /* DetailKonselorVC.swift */; };
 		29757F7A2360732F00799CDD /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29757F792360732F00799CDD /* Order.swift */; };
+		29794951236B02FB0064D679 /* KonselingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794950236B02FB0064D679 /* KonselingVM.swift */; };
+		29794956236B17060064D679 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794955236B17060064D679 /* ChatVC.swift */; };
+		29794958236B17100064D679 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794957236B17100064D679 /* ChatVM.swift */; };
+		2979495A236B21F80064D679 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794959236B21F80064D679 /* ChatRoom.swift */; };
 		298C76D02352D734001DB2C7 /* ListKonselorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C76CF2352D734001DB2C7 /* ListKonselorVC.swift */; };
 		298C76D32352D751001DB2C7 /* ListKonselorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C76D22352D751001DB2C7 /* ListKonselorCell.swift */; };
 		298C76D52352E0BA001DB2C7 /* ListKonselorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C76D42352E0BA001DB2C7 /* ListKonselorVM.swift */; };
@@ -46,6 +57,7 @@
 		299D1278236171940036A626 /* KonselorLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299D1277236171940036A626 /* KonselorLoginVM.swift */; };
 		29A69EEC236032CF0067968B /* OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EEB236032CF0067968B /* OrderVC.swift */; };
 		29A69EEE236032E00067968B /* OrderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EED236032E00067968B /* OrderVM.swift */; };
+		29BC5122236DEBB7000774F5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BC5121236DEBB7000774F5 /* Message.swift */; };
 		29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */; };
 		29FF4A2E234D53800043AE81 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FF4A2D234D53800043AE81 /* SplashVC.swift */; };
 		95A3DEEB7FCE22698A515263 /* Pods_ShareStoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D0BA16B2E3B842E1FF3292 /* Pods_ShareStoryTests.framework */; };
@@ -66,13 +78,20 @@
 		14D0BA16B2E3B842E1FF3292 /* Pods_ShareStoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareStoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		290708F32354510700A0DEE9 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		290708F52354511200A0DEE9 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		2908A083236E9EF500252C8F /* MessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVM.swift; sourceTree = "<group>"; };
 		292C853623535F3A00E215A4 /* LoginGuideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuideVC.swift; sourceTree = "<group>"; };
 		2935030223645F5D00F0C571 /* RequestOrderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOrderVM.swift; sourceTree = "<group>"; };
 		293A2726235192480063D107 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		293A27282351925A0063D107 /* MapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
 		293A272A2351AF340063D107 /* Konselor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Konselor.swift; sourceTree = "<group>"; };
+		293F81EE236DD100001F5436 /* ChatLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLabel.swift; sourceTree = "<group>"; };
+		293F81F1236DD301001F5436 /* SenderKonselorChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderKonselorChatCell.swift; sourceTree = "<group>"; };
+		293F81F3236DD3D7001F5436 /* PatientKonselorChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientKonselorChatCell.swift; sourceTree = "<group>"; };
 		2941423C235831440030E227 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		295669AB234EDF6D00F2E14F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		295E65D7236A83440042FEE8 /* ListKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselingVC.swift; sourceTree = "<group>"; };
+		295E65D9236A834F0042FEE8 /* ListKonselingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselingVM.swift; sourceTree = "<group>"; };
+		295E65DC236A83DA0042FEE8 /* ListKonselingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselingCell.swift; sourceTree = "<group>"; };
 		295E75D7234EE37D002612A4 /* SplashVM.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = SplashVM.swift; sourceTree = "<group>"; tabWidth = 3; };
 		295E75DC234EEC4B002612A4 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		295E75DE234EEC56002612A4 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
@@ -86,6 +105,10 @@
 		296A550E2363FA0900785EE9 /* KonselingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselingCell.swift; sourceTree = "<group>"; };
 		296F45C7235222DF009477FA /* DetailKonselorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKonselorVC.swift; sourceTree = "<group>"; };
 		29757F792360732F00799CDD /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		29794950236B02FB0064D679 /* KonselingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselingVM.swift; sourceTree = "<group>"; };
+		29794955236B17060064D679 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		29794957236B17100064D679 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
+		29794959236B21F80064D679 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		298C76CF2352D734001DB2C7 /* ListKonselorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselorVC.swift; sourceTree = "<group>"; };
 		298C76D22352D751001DB2C7 /* ListKonselorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselorCell.swift; sourceTree = "<group>"; };
 		298C76D42352E0BA001DB2C7 /* ListKonselorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselorVM.swift; sourceTree = "<group>"; };
@@ -107,6 +130,7 @@
 		299D1277236171940036A626 /* KonselorLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorLoginVM.swift; sourceTree = "<group>"; };
 		29A69EEB236032CF0067968B /* OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVC.swift; sourceTree = "<group>"; };
 		29A69EED236032E00067968B /* OrderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVM.swift; sourceTree = "<group>"; };
+		29BC5121236DEBB7000774F5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrderKonselingVC.swift; sourceTree = "<group>"; };
 		29FF4A2D234D53800043AE81 /* SplashVC.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; tabWidth = 3; };
 		3718A352D644BF34BA561DC5 /* Pods-ShareStory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareStory.release.xcconfig"; path = "Target Support Files/Pods-ShareStory/Pods-ShareStory.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +218,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		293F81F0236DD2F0001F5436 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				293F81F1236DD301001F5436 /* SenderKonselorChatCell.swift */,
+				293F81F3236DD3D7001F5436 /* PatientKonselorChatCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		29414239235831210030E227 /* EditProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +241,41 @@
 				2941423C235831440030E227 /* EditProfileVC.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		295E65D4236A82C80042FEE8 /* ListKonseling */ = {
+			isa = PBXGroup;
+			children = (
+				295E65DB236A83C80042FEE8 /* Cell */,
+				295E65D6236A82F10042FEE8 /* ViewModel */,
+				295E65D5236A82EB0042FEE8 /* ViewController */,
+			);
+			path = ListKonseling;
+			sourceTree = "<group>";
+		};
+		295E65D5236A82EB0042FEE8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				295E65D7236A83440042FEE8 /* ListKonselingVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		295E65D6236A82F10042FEE8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				295E65D9236A834F0042FEE8 /* ListKonselingVM.swift */,
+				29794950236B02FB0064D679 /* KonselingVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		295E65DB236A83C80042FEE8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				295E65DC236A83DA0042FEE8 /* ListKonselingCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		295E75D5234EE35F002612A4 /* ViewController */ = {
@@ -264,6 +332,8 @@
 				295E75E8234F05A2002612A4 /* User.swift */,
 				293A272A2351AF340063D107 /* Konselor.swift */,
 				29757F792360732F00799CDD /* Order.swift */,
+				29794959236B21F80064D679 /* ChatRoom.swift */,
+				29BC5121236DEBB7000774F5 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -277,14 +347,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		296A55062363F1FA00785EE9 /* KonselingScreen */ = {
+		296A55062363F1FA00785EE9 /* RequestKonselingScreen */ = {
 			isa = PBXGroup;
 			children = (
 				296A550D2363F9F600785EE9 /* Cell */,
 				296A55082363F9C600785EE9 /* ViewModel */,
 				296A55072363F9BE00785EE9 /* ViewController */,
 			);
-			path = KonselingScreen;
+			path = RequestKonselingScreen;
 			sourceTree = "<group>";
 		};
 		296A55072363F9BE00785EE9 /* ViewController */ = {
@@ -327,6 +397,33 @@
 				296F45C7235222DF009477FA /* DetailKonselorVC.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		29794952236B16E50064D679 /* ChatScreen */ = {
+			isa = PBXGroup;
+			children = (
+				293F81F0236DD2F0001F5436 /* Cell */,
+				29794954236B16F20064D679 /* ViewModel */,
+				29794953236B16EC0064D679 /* ViewController */,
+			);
+			path = ChatScreen;
+			sourceTree = "<group>";
+		};
+		29794953236B16EC0064D679 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29794955236B17060064D679 /* ChatVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		29794954236B16F20064D679 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29794957236B17100064D679 /* ChatVM.swift */,
+				2908A083236E9EF500252C8F /* MessageVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		298C76CC2352D714001DB2C7 /* ListKonselorScreen */ = {
@@ -440,7 +537,9 @@
 		299D127123616FB90036A626 /* KonselorFeatures */ = {
 			isa = PBXGroup;
 			children = (
-				296A55062363F1FA00785EE9 /* KonselingScreen */,
+				29794952236B16E50064D679 /* ChatScreen */,
+				295E65D4236A82C80042FEE8 /* ListKonseling */,
+				296A55062363F1FA00785EE9 /* RequestKonselingScreen */,
 				299D127223616FD00036A626 /* LoginScreen */,
 			);
 			path = KonselorFeatures;
@@ -544,6 +643,7 @@
 				2994F2FF234C3B03009CBBF2 /* SceneDelegate.swift */,
 				2994F30D234C3B03009CBBF2 /* LaunchScreen.storyboard */,
 				298C76D62352E1C8001DB2C7 /* BaseVCExtension.swift */,
+				293F81EE236DD100001F5436 /* ChatLabel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -766,7 +866,9 @@
 				2994F30A234C3B03009CBBF2 /* ShareStory.xcdatamodeld in Sources */,
 				296A550F2363FA0900785EE9 /* KonselingCell.swift in Sources */,
 				295E75EC234F0C69002612A4 /* DataService.swift in Sources */,
+				295E65D8236A83440042FEE8 /* ListKonselingVC.swift in Sources */,
 				298C76D02352D734001DB2C7 /* ListKonselorVC.swift in Sources */,
+				2908A084236E9EF500252C8F /* MessageVM.swift in Sources */,
 				296A550A2363F9DD00785EE9 /* OrderKonselingVC.swift in Sources */,
 				295E75F0234F0DA0002612A4 /* Config.swift in Sources */,
 				295E75DD234EEC4B002612A4 /* LoginVC.swift in Sources */,
@@ -775,20 +877,30 @@
 				296F45C8235222DF009477FA /* DetailKonselorVC.swift in Sources */,
 				295E75E5234EEC8C002612A4 /* RegisterVM.swift in Sources */,
 				293A272B2351AF340063D107 /* Konselor.swift in Sources */,
+				293F81F2236DD301001F5436 /* SenderKonselorChatCell.swift in Sources */,
 				298C76D52352E0BA001DB2C7 /* ListKonselorVM.swift in Sources */,
+				293F81F4236DD3D7001F5436 /* PatientKonselorChatCell.swift in Sources */,
 				2935030323645F5D00F0C571 /* RequestOrderVM.swift in Sources */,
+				29BC5122236DEBB7000774F5 /* Message.swift in Sources */,
+				295E65DA236A834F0042FEE8 /* ListKonselingVM.swift in Sources */,
 				295E75DF234EEC56002612A4 /* LoginVM.swift in Sources */,
 				29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */,
+				293F81EF236DD100001F5436 /* ChatLabel.swift in Sources */,
+				2979495A236B21F80064D679 /* ChatRoom.swift in Sources */,
 				29757F7A2360732F00799CDD /* Order.swift in Sources */,
 				290708F62354511200A0DEE9 /* ProfileVM.swift in Sources */,
 				2994F300234C3B03009CBBF2 /* SceneDelegate.swift in Sources */,
+				29794958236B17100064D679 /* ChatVM.swift in Sources */,
 				293A2727235192480063D107 /* MapVC.swift in Sources */,
 				295E75E9234F05A2002612A4 /* User.swift in Sources */,
 				298C76D72352E1C8001DB2C7 /* BaseVCExtension.swift in Sources */,
+				29794956236B17060064D679 /* ChatVC.swift in Sources */,
+				295E65DD236A83DA0042FEE8 /* ListKonselingCell.swift in Sources */,
 				29A69EEE236032E00067968B /* OrderVM.swift in Sources */,
 				299D126C2361687D0036A626 /* WelcomeVC.swift in Sources */,
 				292C853723535F3A00E215A4 /* LoginGuideVC.swift in Sources */,
 				295E75D8234EE37D002612A4 /* SplashVM.swift in Sources */,
+				29794951236B02FB0064D679 /* KonselingVM.swift in Sources */,
 				29A69EEC236032CF0067968B /* OrderVC.swift in Sources */,
 				299D1276236171760036A626 /* KonselorLoginVC.swift in Sources */,
 				296A550C2363F9EA00785EE9 /* OrderKonselingVM.swift in Sources */,
@@ -959,7 +1071,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45572G9RT8;
 				INFOPLIST_FILE = ShareStory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -977,7 +1091,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45572G9RT8;
 				INFOPLIST_FILE = ShareStory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

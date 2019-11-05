@@ -14,6 +14,7 @@ let _REF_BASE = DB_BASE
 let _REF_USER = DB_BASE.child("user")
 let _REF_KONSELOR = DB_BASE.child("konselor")
 let _REF_ORDER = DB_BASE.child("order")
+let _REF_CHATROOM = DB_BASE.child("chat_room")
 
 //MARK:- Important Constant
 let USER_LOCATION_KEY = "user-location-key"

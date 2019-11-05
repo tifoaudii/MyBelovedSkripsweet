@@ -20,4 +20,8 @@ class OrderVC: UIViewController {
     fileprivate func bindViewModel() {
         
     }
+    
+    @IBAction func cancelButtonDidClicked(_ sender: Any) {
+        
+    }
 }
