@@ -20,7 +20,7 @@ class PatientKonselorChatCell: UITableViewCell {
         
     }
     
-    func setupCell(messageVM: MessageVM) {
+    func setupCell(messageVM: PatientMessageVM) {
         self.patientImageView.image = messageVM.senderImageView
         self.patientNameLabel.text = messageVM.senderName
         self.messageLabel.text = messageVM.content

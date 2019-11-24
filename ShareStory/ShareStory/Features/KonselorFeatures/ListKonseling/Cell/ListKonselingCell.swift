@@ -18,4 +18,10 @@ class ListKonselingCell: UITableViewCell {
         super.awakeFromNib()
         
     }
+    
+    func setupCell(konselingVM: KonselingVM) {
+        self.patientImageView.image = konselingVM.patientImageView
+        self.patientNameLabel.text = konselingVM.patientName
+        self.patientGenderLabel.text = konselingVM.patientGender
+    }
 }

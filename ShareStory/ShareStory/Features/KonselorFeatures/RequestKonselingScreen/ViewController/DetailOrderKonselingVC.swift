@@ -76,12 +76,12 @@ extension DetailOrderKonselingVC {
     }
     
     func onOrderAccepted(chatRoom: ChatRoom) {
-        let chatVC = UIStoryboard.init(name: "Konselor", bundle: nil).instantiateViewController(identifier: "ChatVC") as ChatVC
-        chatVC.modalPresentationStyle = .fullScreen
+        let chatVC = UIStoryboard.init(name: "Konselor", bundle: nil).instantiateViewController(identifier: "ChatVC") as KonselorChatVC
         chatVC.loadChatRoom(chatRoom: chatRoom)
-        self.present(chatVC, animated: true) { [unowned self] in
-            self.navigationController?.popViewController(animated: true)
-        }
+        var currentVC = self.navigationController?.viewControllers
+        currentVC?.removeLast()
+        currentVC?.append(chatVC)
+        self.navigationController?.setViewControllers(currentVC!, animated: true)
     }
     
     func onOrderDenied() {

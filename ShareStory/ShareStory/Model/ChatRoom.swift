@@ -8,8 +8,14 @@
 
 import Foundation
 
+enum ChatRoomStatus: String {
+    case done = "done"
+    case ungoing = "ungoing"
+}
+
 struct ChatRoom {
     var id: String
     var patientId: String
     var konselorId: String
+    var status: ChatRoomStatus
 }

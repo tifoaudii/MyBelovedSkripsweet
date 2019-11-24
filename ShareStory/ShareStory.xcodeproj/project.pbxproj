@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		290708F42354510700A0DEE9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290708F32354510700A0DEE9 /* ProfileVC.swift */; };
 		290708F62354511200A0DEE9 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290708F52354511200A0DEE9 /* ProfileVM.swift */; };
-		2908A084236E9EF500252C8F /* MessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908A083236E9EF500252C8F /* MessageVM.swift */; };
+		2908A084236E9EF500252C8F /* PatientMessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908A083236E9EF500252C8F /* PatientMessageVM.swift */; };
 		292C853723535F3A00E215A4 /* LoginGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292C853623535F3A00E215A4 /* LoginGuideVC.swift */; };
 		2935030323645F5D00F0C571 /* RequestOrderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2935030223645F5D00F0C571 /* RequestOrderVM.swift */; };
 		293A2727235192480063D107 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293A2726235192480063D107 /* MapVC.swift */; };
@@ -37,8 +37,8 @@
 		296F45C8235222DF009477FA /* DetailKonselorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296F45C7235222DF009477FA /* DetailKonselorVC.swift */; };
 		29757F7A2360732F00799CDD /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29757F792360732F00799CDD /* Order.swift */; };
 		29794951236B02FB0064D679 /* KonselingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794950236B02FB0064D679 /* KonselingVM.swift */; };
-		29794956236B17060064D679 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794955236B17060064D679 /* ChatVC.swift */; };
-		29794958236B17100064D679 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794957236B17100064D679 /* ChatVM.swift */; };
+		29794956236B17060064D679 /* KonselorChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794955236B17060064D679 /* KonselorChatVC.swift */; };
+		29794958236B17100064D679 /* KonselorChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794957236B17100064D679 /* KonselorChatVM.swift */; };
 		2979495A236B21F80064D679 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29794959236B21F80064D679 /* ChatRoom.swift */; };
 		298C76D02352D734001DB2C7 /* ListKonselorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C76CF2352D734001DB2C7 /* ListKonselorVC.swift */; };
 		298C76D32352D751001DB2C7 /* ListKonselorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C76D22352D751001DB2C7 /* ListKonselorCell.swift */; };
@@ -58,6 +58,11 @@
 		29A69EEC236032CF0067968B /* OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EEB236032CF0067968B /* OrderVC.swift */; };
 		29A69EEE236032E00067968B /* OrderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EED236032E00067968B /* OrderVM.swift */; };
 		29BC5122236DEBB7000774F5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BC5121236DEBB7000774F5 /* Message.swift */; };
+		29BE9DEF238772F100E24485 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DEE238772F100E24485 /* ChatVC.swift */; };
+		29BE9DF12387730000E24485 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF02387730000E24485 /* ChatVM.swift */; };
+		29BE9DF32387792500E24485 /* ChatPatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF22387792500E24485 /* ChatPatientCell.swift */; };
+		29BE9DF52387793300E24485 /* ChatKonselorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF42387793300E24485 /* ChatKonselorCell.swift */; };
+		29BE9DF723877A2C00E24485 /* KonselorMessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF623877A2C00E24485 /* KonselorMessageVM.swift */; };
 		29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */; };
 		29FF4A2E234D53800043AE81 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FF4A2D234D53800043AE81 /* SplashVC.swift */; };
 		95A3DEEB7FCE22698A515263 /* Pods_ShareStoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D0BA16B2E3B842E1FF3292 /* Pods_ShareStoryTests.framework */; };
@@ -78,7 +83,7 @@
 		14D0BA16B2E3B842E1FF3292 /* Pods_ShareStoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareStoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		290708F32354510700A0DEE9 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		290708F52354511200A0DEE9 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
-		2908A083236E9EF500252C8F /* MessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVM.swift; sourceTree = "<group>"; };
+		2908A083236E9EF500252C8F /* PatientMessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientMessageVM.swift; sourceTree = "<group>"; };
 		292C853623535F3A00E215A4 /* LoginGuideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuideVC.swift; sourceTree = "<group>"; };
 		2935030223645F5D00F0C571 /* RequestOrderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOrderVM.swift; sourceTree = "<group>"; };
 		293A2726235192480063D107 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -106,8 +111,8 @@
 		296F45C7235222DF009477FA /* DetailKonselorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKonselorVC.swift; sourceTree = "<group>"; };
 		29757F792360732F00799CDD /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		29794950236B02FB0064D679 /* KonselingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselingVM.swift; sourceTree = "<group>"; };
-		29794955236B17060064D679 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
-		29794957236B17100064D679 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
+		29794955236B17060064D679 /* KonselorChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorChatVC.swift; sourceTree = "<group>"; };
+		29794957236B17100064D679 /* KonselorChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorChatVM.swift; sourceTree = "<group>"; };
 		29794959236B21F80064D679 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		298C76CF2352D734001DB2C7 /* ListKonselorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselorVC.swift; sourceTree = "<group>"; };
 		298C76D22352D751001DB2C7 /* ListKonselorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselorCell.swift; sourceTree = "<group>"; };
@@ -131,6 +136,11 @@
 		29A69EEB236032CF0067968B /* OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVC.swift; sourceTree = "<group>"; };
 		29A69EED236032E00067968B /* OrderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVM.swift; sourceTree = "<group>"; };
 		29BC5121236DEBB7000774F5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		29BE9DEE238772F100E24485 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		29BE9DF02387730000E24485 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
+		29BE9DF22387792500E24485 /* ChatPatientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPatientCell.swift; sourceTree = "<group>"; };
+		29BE9DF42387793300E24485 /* ChatKonselorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatKonselorCell.swift; sourceTree = "<group>"; };
+		29BE9DF623877A2C00E24485 /* KonselorMessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorMessageVM.swift; sourceTree = "<group>"; };
 		29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrderKonselingVC.swift; sourceTree = "<group>"; };
 		29FF4A2D234D53800043AE81 /* SplashVC.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; tabWidth = 3; };
 		3718A352D644BF34BA561DC5 /* Pods-ShareStory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareStory.release.xcconfig"; path = "Target Support Files/Pods-ShareStory/Pods-ShareStory.release.xcconfig"; sourceTree = "<group>"; };
@@ -412,7 +422,7 @@
 		29794953236B16EC0064D679 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				29794955236B17060064D679 /* ChatVC.swift */,
+				29794955236B17060064D679 /* KonselorChatVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -420,8 +430,8 @@
 		29794954236B16F20064D679 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				29794957236B17100064D679 /* ChatVM.swift */,
-				2908A083236E9EF500252C8F /* MessageVM.swift */,
+				29794957236B17100064D679 /* KonselorChatVM.swift */,
+				2908A083236E9EF500252C8F /* PatientMessageVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -595,6 +605,32 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		29BE9DEB238772CD00E24485 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29BE9DEE238772F100E24485 /* ChatVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		29BE9DEC238772D400E24485 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29BE9DF02387730000E24485 /* ChatVM.swift */,
+				29BE9DF623877A2C00E24485 /* KonselorMessageVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29BE9DED238772DF00E24485 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				29BE9DF22387792500E24485 /* ChatPatientCell.swift */,
+				29BE9DF42387793300E24485 /* ChatKonselorCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		29EC0CA6234D94BC0091C126 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +714,9 @@
 		29FF4A30234D63790043AE81 /* ChatScreen */ = {
 			isa = PBXGroup;
 			children = (
+				29BE9DED238772DF00E24485 /* Cell */,
+				29BE9DEC238772D400E24485 /* ViewModel */,
+				29BE9DEB238772CD00E24485 /* ViewController */,
 			);
 			path = ChatScreen;
 			sourceTree = "<group>";
@@ -863,18 +902,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29BE9DEF238772F100E24485 /* ChatVC.swift in Sources */,
 				2994F30A234C3B03009CBBF2 /* ShareStory.xcdatamodeld in Sources */,
 				296A550F2363FA0900785EE9 /* KonselingCell.swift in Sources */,
 				295E75EC234F0C69002612A4 /* DataService.swift in Sources */,
 				295E65D8236A83440042FEE8 /* ListKonselingVC.swift in Sources */,
 				298C76D02352D734001DB2C7 /* ListKonselorVC.swift in Sources */,
-				2908A084236E9EF500252C8F /* MessageVM.swift in Sources */,
+				29BE9DF52387793300E24485 /* ChatKonselorCell.swift in Sources */,
+				2908A084236E9EF500252C8F /* PatientMessageVM.swift in Sources */,
+				29BE9DF32387792500E24485 /* ChatPatientCell.swift in Sources */,
 				296A550A2363F9DD00785EE9 /* OrderKonselingVC.swift in Sources */,
 				295E75F0234F0DA0002612A4 /* Config.swift in Sources */,
 				295E75DD234EEC4B002612A4 /* LoginVC.swift in Sources */,
 				2994F2FE234C3B03009CBBF2 /* AppDelegate.swift in Sources */,
 				293A27292351925A0063D107 /* MapVM.swift in Sources */,
 				296F45C8235222DF009477FA /* DetailKonselorVC.swift in Sources */,
+				29BE9DF723877A2C00E24485 /* KonselorMessageVM.swift in Sources */,
 				295E75E5234EEC8C002612A4 /* RegisterVM.swift in Sources */,
 				293A272B2351AF340063D107 /* Konselor.swift in Sources */,
 				293F81F2236DD301001F5436 /* SenderKonselorChatCell.swift in Sources */,
@@ -885,16 +928,17 @@
 				295E65DA236A834F0042FEE8 /* ListKonselingVM.swift in Sources */,
 				295E75DF234EEC56002612A4 /* LoginVM.swift in Sources */,
 				29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */,
+				29BE9DF12387730000E24485 /* ChatVM.swift in Sources */,
 				293F81EF236DD100001F5436 /* ChatLabel.swift in Sources */,
 				2979495A236B21F80064D679 /* ChatRoom.swift in Sources */,
 				29757F7A2360732F00799CDD /* Order.swift in Sources */,
 				290708F62354511200A0DEE9 /* ProfileVM.swift in Sources */,
 				2994F300234C3B03009CBBF2 /* SceneDelegate.swift in Sources */,
-				29794958236B17100064D679 /* ChatVM.swift in Sources */,
+				29794958236B17100064D679 /* KonselorChatVM.swift in Sources */,
 				293A2727235192480063D107 /* MapVC.swift in Sources */,
 				295E75E9234F05A2002612A4 /* User.swift in Sources */,
 				298C76D72352E1C8001DB2C7 /* BaseVCExtension.swift in Sources */,
-				29794956236B17060064D679 /* ChatVC.swift in Sources */,
+				29794956236B17060064D679 /* KonselorChatVC.swift in Sources */,
 				295E65DD236A83DA0042FEE8 /* ListKonselingCell.swift in Sources */,
 				29A69EEE236032E00067968B /* OrderVM.swift in Sources */,
 				299D126C2361687D0036A626 /* WelcomeVC.swift in Sources */,

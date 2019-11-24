@@ -196,6 +196,31 @@ class DataService {
         }
     }
     
+    func getKonselorProfile(uid: String,completion: @escaping (_ konselor: Konselor) -> Void, failure: @escaping ()->()) {
+        REF_KONSELOR.observeSingleEvent(of: .value) { (konselorSnapshot) in
+            guard let konselorSnapshot = konselorSnapshot.children.allObjects as? [DataSnapshot] else {
+                failure()
+                return
+            }
+            
+            for konselor in konselorSnapshot {
+                if konselor.key == uid {
+                    let name = konselor.childSnapshot(forPath: "name").value as! String
+                    let address = konselor.childSnapshot(forPath: "address").value as! String
+                    let university = konselor.childSnapshot(forPath: "university").value as! String
+                    let latitude = konselor.childSnapshot(forPath: "location").childSnapshot(forPath: "latitude").value as! Double
+                    let longitude = konselor.childSnapshot(forPath: "location").childSnapshot(forPath: "longitude").value as! Double
+                    let isOnline = konselor.childSnapshot(forPath: "isOnline").value as! Bool
+                    let distance = self.calculateDistance(konselor: latitude, konselor: longitude)
+                    
+                    let currentKonselor = Konselor(id: konselor.key, name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance)
+                    completion(currentKonselor)
+                    break
+                }
+            }
+        }
+    }
+    
     func getPatientProfile(with uid: String, completion: @escaping (_ user: User) -> Void, failure: @escaping ()->()) {
         
         REF_USER.observeSingleEvent(of: .value) { (dataSnapshot) in
@@ -203,6 +228,7 @@ class DataService {
                 failure()
                 return
             }
+            
             for user in usersSnapshot {
                 if user.key == uid {
                     let name = user.childSnapshot(forPath: "name").value as! String
@@ -218,7 +244,7 @@ class DataService {
         }
     }
     
-    func createOrder(order: Order, completion: @escaping (_ success: Bool)->()) {
+    func createOrder(order: Order, completion: @escaping (_ success: Bool, _ orderId: String)->()) {
         
         let newOrder = [
             "senderId": order.senderId,
@@ -226,8 +252,12 @@ class DataService {
             "status": order.status.rawValue
         ]
         
-        REF_ORDER.childByAutoId().updateChildValues(newOrder)
-        completion(true)
+        guard let newOrderId = REF_ORDER.childByAutoId().key else {
+            return
+        }
+        
+        REF_ORDER.child(newOrderId).updateChildValues(newOrder)
+        completion(true, newOrderId)
     }
     
     func updateUserProfile(name: String, birthday: String, gender: Gender, completion: @escaping (_ success: Bool)-> (), failure: @escaping ()->()) {
@@ -248,14 +278,16 @@ class DataService {
         completion(true)
     }
     
-    func acceptOrder(order: RequestOrderVM,completion: @escaping (_ chatroom: ChatRoom)->()) {
+    func acceptOrder(order: RequestOrderVM, completion: @escaping (_ chatroom: ChatRoom)->()) {
         REF_ORDER.child(order.orderId).updateChildValues(["status": OrderStatus.accepted.rawValue])
         
         DispatchQueue.main.async { [unowned self] in
             self.REF_CHATROOM.childByAutoId()
                 .updateChildValues([
+                    "orderId": order.orderId,
                     "patientId": order.patientId,
-                    "konselorId": self.konselorUid
+                    "konselorId": self.konselorUid,
+                    "status": ChatRoomStatus.ungoing.rawValue
                 ])
             
             self.REF_CHATROOM.observeSingleEvent(of: .value) { (dataSnapshot) in
@@ -263,7 +295,7 @@ class DataService {
                     return
                 }
                 
-                let newChatRoom = ChatRoom(id: chatRoomSnapshot.key, patientId: order.patientId, konselorId: self.konselorUid)
+                let newChatRoom = ChatRoom(id: chatRoomSnapshot.key, patientId: order.patientId, konselorId: self.konselorUid, status: .ungoing)
                 completion(newChatRoom)
             }
         }
@@ -331,6 +363,35 @@ class DataService {
         }
     }
     
+    func fetchKonselorMessages(
+        chatRoom: ChatRoom,
+        completion: @escaping (_ messages: [Message], _ konselor: Konselor)-> Void,
+        failure: @escaping ()-> Void) {
+        
+        var messages = [Message]()
+        
+        REF_CHATROOM.child(chatRoom.id).child("messages").observeSingleEvent(of: .value) { (messageSnapshot) in
+            guard let messageSnapshot = messageSnapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            
+            for message in messageSnapshot {
+                let content = message.childSnapshot(forPath: "content").value as! String
+                let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                let senderType = message.childSnapshot(forPath: "senderType").value as! String
+                
+                let newMessage = Message(senderId: senderId, content: content, senderType: SenderType(rawValue: senderType)!)
+                messages.append(newMessage)
+            }
+        }
+        
+        self.getKonselorProfile(uid: chatRoom.konselorId, completion: { (konselor) in
+            completion(messages, konselor)
+        }) {
+            failure()
+        }
+    }
+    
     func fetchAllMessages(
         chatRoom: ChatRoom,
         completion: @escaping (_ messages: [Message], _ patient: User)-> Void,
@@ -370,6 +431,7 @@ class DataService {
             "senderId": message.senderId,
             "senderType": message.senderType.rawValue
         ]
+        
         REF_CHATROOM
             .child(chatRoom.id)
             .child("messages")
@@ -377,5 +439,78 @@ class DataService {
             .updateChildValues(newMessage)
         
         success(true)
+    }
+    
+    func fetchAllAcceptedOrder(completion: @escaping (_ acceptedOrders: [AcceptedOrder]) -> (), failure: @escaping ()->()) {
+        
+        var acceptedOrderDict = Dictionary<String,ChatRoom>()
+        REF_CHATROOM.observeSingleEvent(of: .value) { (dataSnapshot) in
+            
+            guard let chatRoomSnapshot = dataSnapshot.children.allObjects as? [DataSnapshot] else {
+                return failure()
+            }
+            
+            for chatRoom in chatRoomSnapshot {
+                let konselorId = chatRoom.childSnapshot(forPath: "konselorId").value as! String
+                let status = chatRoom.childSnapshot(forPath: "status").value as! String
+                let patientId = chatRoom.childSnapshot(forPath: "patientId").value as! String
+                let newChatRoom = ChatRoom(id: chatRoom.key, patientId: patientId, konselorId: konselorId, status: ChatRoomStatus(rawValue: status)!)
+                
+                if self.konselorUid == konselorId && status == ChatRoomStatus.ungoing.rawValue {
+                    acceptedOrderDict["\(patientId)"] = newChatRoom
+                }
+            }
+            
+            self.decodeDataIntoAcceptedOrder(orderDict: acceptedOrderDict) { (acceptedOrders) in
+                print(acceptedOrders)
+                completion(acceptedOrders)
+            }
+        }
+    }
+    
+    func decodeDataIntoAcceptedOrder(orderDict: Dictionary<String,ChatRoom>, completion: @escaping (_ acceptedOrders: [AcceptedOrder])->()) {
+        
+        var acceptedOrders = [AcceptedOrder]()
+        
+        REF_USER.observeSingleEvent(of: .value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            
+            for user in userSnapshot {
+                if orderDict.keys.contains(user.key) {
+                    let name = user.childSnapshot(forPath: "name").value as! String
+                    let birthday = user.childSnapshot(forPath: "birthday").value as! String
+                    let email = user.childSnapshot(forPath: "email").value as! String
+                    let gender = user.childSnapshot(forPath: "gender").value as! String
+                    
+                    let patient = User(name: name, birthDay: birthday, email: email, gender: Gender(rawValue: gender)!, password: "")
+                    let chatRoom = orderDict[user.key]
+                    let acceptedOrder = AcceptedOrder(chatRoom: chatRoom!, patient: patient)
+                    acceptedOrders.append(acceptedOrder)
+                }
+            }
+            completion(acceptedOrders)
+        }
+    }
+    
+    func getChatRoom(orderId: String, completion: @escaping (_ chatRoom: ChatRoom)->(), failure: @escaping ()->()) {
+        REF_CHATROOM.observeSingleEvent(of: .value) { (chatRoomSnapshot) in
+            guard let chatRoomSnapshot = chatRoomSnapshot.children.allObjects as? [DataSnapshot] else {
+                return failure()
+            }
+            
+            for chatRoom in chatRoomSnapshot {
+                let orderChatRoom = chatRoom.childSnapshot(forPath: "orderId").value as! String
+                if orderChatRoom == orderId {
+                    let konselorId = chatRoom.childSnapshot(forPath: "konselorId").value as! String
+                    let patientId = chatRoom.childSnapshot(forPath: "patientId").value as! String
+                    let status = chatRoom.childSnapshot(forPath: "status").value as! String
+                    let currentChatRoom = ChatRoom(id: chatRoom.key, patientId: patientId, konselorId: konselorId, status: ChatRoomStatus.init(rawValue: status)!)
+                    completion(currentChatRoom)
+                    break
+                }
+            }
+        }
     }
 }

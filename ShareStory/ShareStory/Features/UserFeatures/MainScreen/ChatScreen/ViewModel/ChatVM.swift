@@ -2,17 +2,18 @@
 //  ChatVM.swift
 //  ShareStory
 //
-//  Created by Tifo Audi Alif Putra on 31/10/19.
+//  Created by Tifo Audi Alif Putra on 22/11/19.
 //  Copyright © 2019 BCC FILKOM. All rights reserved.
 //
 
 import Foundation
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 
 class ChatVM {
     
-    private let _patient = BehaviorRelay<User?>(value: nil)
+    private let _konselor = BehaviorRelay<Konselor?>(value: nil)
     private let _messages = BehaviorRelay<[Message]>(value: [])
     private let _hasError = BehaviorRelay<Bool>(value: false)
     
@@ -29,14 +30,17 @@ class ChatVM {
     }
     
     func sendMessage(content: String, chatRoom: ChatRoom) {
-        let newMessage = Message(senderId: DataService.shared.konselorUid, content: content, senderType: .konselor)
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let newMessage = Message(senderId: uid, content: content, senderType: .patient)
         DataService.shared.sendMessage(message: newMessage, chatRoom: chatRoom) { _ in }
     }
     
-    func fetchAllMessages(chatRoom: ChatRoom) {
-        DataService.shared.fetchAllMessages(chatRoom: chatRoom, completion: { [weak self] (message, patient) in
+    func fetchMessages(chatRoom: ChatRoom) {
+        DataService.shared.fetchKonselorMessages(chatRoom: chatRoom, completion: { [weak self] (message, konselor) in
             self?._messages.accept(message)
-            self?._patient.accept(patient)
+            self?._konselor.accept(konselor)
         }) { [weak self] in
             self?._hasError.accept(true)
         }
@@ -44,15 +48,15 @@ class ChatVM {
     
     func observeMessage(chatRoom: ChatRoom) {
         DataService.shared.REF_CHATROOM.child(chatRoom.id).observe(.value) { [weak self] (_) in
-            self?.fetchAllMessages(chatRoom: chatRoom)
+            self?.fetchMessages(chatRoom: chatRoom)
         }
     }
     
-    func viewModelForMessages(at index: Int) -> MessageVM? {
-        guard index < numberOfMessages, let patient = _patient.value else {
+    func viewModelForMessages(at index: Int) -> KonselorMessageVM? {
+        guard index < numberOfMessages, let konselor = _konselor.value else {
             return nil
         }
         
-        return MessageVM(message: _messages.value[index], patient: patient)
+        return KonselorMessageVM(message: _messages.value[index], konselor: konselor)
     }
 }

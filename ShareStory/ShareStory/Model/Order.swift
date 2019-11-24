@@ -26,3 +26,8 @@ struct RequestOrder {
     var sender: User
     var senderId: String
 }
+
+struct AcceptedOrder {
+    var chatRoom: ChatRoom
+    var patient: User
+}

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ChatVC: UIViewController {
+class KonselorChatVC: UIViewController {
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var chatTableView: UITableView!
@@ -18,7 +18,7 @@ class ChatVC: UIViewController {
     
     private var chatRoom: ChatRoom?
     private var messages = [Message]()
-    private let chatVM = ChatVM()
+    private let chatVM = KonselorChatVM()
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -43,6 +43,7 @@ class ChatVC: UIViewController {
         self.chatVM.messages
             .drive(onNext: { [unowned self] messages in
                 self.messages = messages
+                self.messageTextField.text = ""
                 self.chatTableView.reloadData()
             }).disposed(by: disposeBag)
         
@@ -73,10 +74,11 @@ class ChatVC: UIViewController {
         }
         
         self.chatVM.sendMessage(content: message, chatRoom: chatRoom)
+        self.view.endEditing(true)
     }
 }
 
-extension ChatVC: UITableViewDelegate, UITableViewDataSource {
+extension KonselorChatVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
@@ -96,6 +98,7 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "KonselorSenderCellIdentifier", for: indexPath) as? SenderKonselorChatCell else {
                 return UITableViewCell()
             }
+            cell.setupCell(message: message.content)
             return cell
         }
     }

@@ -54,8 +54,9 @@ class DetailKonselorVC: UIViewController {
                 guard let konselor = self.konselor else {
                     return
                 }
-                self.orderVm.createOrder(konselorId: konselor.id)
-                self.performSegue(withIdentifier: "order_segue", sender: nil)
+                self.orderVm.createOrder(konselorId: konselor.id, completion: { [unowned self] orderId in
+                    self.onOrderSuccessfulCreated(orderId: orderId)
+                })
             }
         }
     }
@@ -65,5 +66,12 @@ class DetailKonselorVC: UIViewController {
 extension DetailKonselorVC {
     open func loadKonselor(konselor: Konselor) {
         self.konselor = konselor
+    }
+    
+    func onOrderSuccessfulCreated(orderId: String) {
+        let orderVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "OrderVC") as OrderVC
+        orderVC.setOrderId(orderId: orderId)
+        orderVC.modalPresentationStyle = .fullScreen
+        self.present(orderVC, animated: true, completion: nil)
     }
 }

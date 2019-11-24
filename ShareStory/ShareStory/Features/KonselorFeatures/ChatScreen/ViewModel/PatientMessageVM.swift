@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageVM {
+class PatientMessageVM {
     
     private var message: Message
     private var patient: User
