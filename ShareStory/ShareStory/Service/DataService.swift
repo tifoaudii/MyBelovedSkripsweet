@@ -38,6 +38,7 @@ class DataService {
     var REF_KONSELOR: DatabaseReference { return _REF_KONSELOR }
     var REF_ORDER: DatabaseReference { return _REF_ORDER }
     var REF_CHATROOM: DatabaseReference { return _REF_CHATROOM }
+    var REF_HISTORY: DatabaseReference { return _REF_HISTORY }
     
     //MARK:- Helper Function
     func registerUser(newUser: User, success: @escaping (_ success: Bool)-> Void, failure: @escaping (_ fail: Bool)-> Void) {
@@ -142,8 +143,11 @@ class DataService {
                 let longitude = konselor.childSnapshot(forPath: "location").childSnapshot(forPath: "longitude").value as! Double
                 let isOnline = konselor.childSnapshot(forPath: "isOnline").value as! Bool
                 let distance = self.calculateDistance(konselor: latitude, konselor: longitude)
+                let rating = konselor.childSnapshot(forPath: "rating").value as! Double
+                let patientCount = konselor.childSnapshot(forPath: "patient_count").value as! Int
+                let photoUrl = konselor.childSnapshot(forPath: "photoUrl").value as! String
                 
-                let newKonselor = Konselor(id: konselor.key, name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance)
+                let newKonselor = Konselor(id: konselor.key, name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance, patientCount: patientCount, rating: rating, photoUrl: photoUrl)
                 
                 if newKonselor.isOnline {
                     konselorArray.append(newKonselor)
@@ -212,8 +216,11 @@ class DataService {
                     let longitude = konselor.childSnapshot(forPath: "location").childSnapshot(forPath: "longitude").value as! Double
                     let isOnline = konselor.childSnapshot(forPath: "isOnline").value as! Bool
                     let distance = self.calculateDistance(konselor: latitude, konselor: longitude)
+                    let patientCount = konselor.childSnapshot(forPath: "patient_count").value as! Int
+                    let rating = konselor.childSnapshot(forPath: "rating").value as! Double
+                    let photoUrl = konselor.childSnapshot(forPath: "photoUrl").value as! String
                     
-                    let currentKonselor = Konselor(id: konselor.key, name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance)
+                    let currentKonselor = Konselor(id: konselor.key, name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance, patientCount: patientCount, rating: rating, photoUrl: photoUrl)
                     completion(currentKonselor)
                     break
                 }
@@ -511,6 +518,75 @@ class DataService {
                     break
                 }
             }
+        }
+    }
+    
+    func finishKonseling(chatRoom: ChatRoom, completion: @escaping (_ success: Bool, _ konselor: Konselor)->()) {
+        REF_CHATROOM.child(chatRoom.id).updateChildValues(["status": ChatRoomStatus.done.rawValue])
+        self.getKonselorProfile(uid: chatRoom.konselorId, completion: { (konselor) in
+            completion(true, konselor)
+        }) {
+            
+        }
+    }
+    
+    func submitRating(rating: Int, konselor: Konselor, completion: @escaping (_ success: Bool)->()) {
+        let newPatientCount = konselor.patientCount + 1
+        let totalRating = (konselor.rating + Double(rating))
+        REF_KONSELOR.child(konselor.id).updateChildValues(["rating": totalRating, "patient_count": newPatientCount])
+        completion(true)
+    }
+    
+    func createHistoryOrder(chatRoom: ChatRoom) {
+        self.getKonselorProfile(uid: chatRoom.konselorId, completion: { [unowned self] (konselor) in
+            let date = self.getCurrentDate()
+            let historyOrder = [
+                "patientId": chatRoom.patientId,
+                "photoUrl": konselor.photoUrl,
+                "chatRoomId": chatRoom.id,
+                "konselorName": konselor.name,
+                "date": date,
+                "konselorId": chatRoom.konselorId
+            ]
+            self.REF_HISTORY.childByAutoId().updateChildValues(historyOrder)
+        }) {}
+    }
+    
+    private func getCurrentDate() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
+    func getHistoryOrder(completion: @escaping (_ history: [History])->(), failure: @escaping ()->()) {
+        REF_HISTORY.observeSingleEvent(of: .value) { (historySnapshot) in
+            
+            var historyArray = [History]()
+            
+            guard let historyOrders = historySnapshot.children.allObjects as? [DataSnapshot], let uid = Auth.auth().currentUser?.uid else {
+                return failure()
+            }
+            
+            for history in historyOrders {
+                let patientId = history.childSnapshot(forPath: "patientId").value as! String
+                if patientId == uid {
+                    let photoUrl = history.childSnapshot(forPath: "photoUrl").value as! String
+                    let konselorName = history.childSnapshot(forPath: "konselorName").value as! String
+                    let dateString = history.childSnapshot(forPath: "date").value as! String
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd-MM-yyyy"
+                    let date = dateFormatter.date(from: dateString)
+                    let chatRoomId = history.childSnapshot(forPath: "chatRoomId").value as! String
+                    let konselorId = history.childSnapshot(forPath: "konselorId").value as! String
+                    let historyOrder = History(konselorPhotoUrl: photoUrl, chatRoomId: chatRoomId, konselorName: konselorName, konselorId: konselorId, date: date!)
+                    historyArray.append(historyOrder)
+                }
+            }
+            
+            historyArray = historyArray.sorted(by: { $0.date.compare($1.date) == .orderedAscending })
+            completion(historyArray)
         }
     }
 }

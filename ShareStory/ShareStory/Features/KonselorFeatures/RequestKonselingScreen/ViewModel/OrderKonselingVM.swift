@@ -63,6 +63,7 @@ class OrderKonselingVM {
         DataService.shared.acceptOrder(order: order) { [weak self] (chatRoom) in
             self?._isOrderAccepted.accept(true)
             self?._chatRoom.accept(chatRoom)
+            self?.createHistoryOrder(chatRoom: chatRoom)
         }
     }
     
@@ -77,6 +78,12 @@ class OrderKonselingVM {
             if success {
                 self?._isOrderDeclined.accept(true)
             }
+        }
+    }
+    
+    func createHistoryOrder(chatRoom: ChatRoom) {
+        DispatchQueue.global(qos: .utility).async { 
+            DataService.shared.createHistoryOrder(chatRoom: chatRoom)
         }
     }
 }

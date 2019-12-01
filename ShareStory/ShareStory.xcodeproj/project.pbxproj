@@ -10,6 +10,13 @@
 		290708F42354510700A0DEE9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290708F32354510700A0DEE9 /* ProfileVC.swift */; };
 		290708F62354511200A0DEE9 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290708F52354511200A0DEE9 /* ProfileVM.swift */; };
 		2908A084236E9EF500252C8F /* PatientMessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908A083236E9EF500252C8F /* PatientMessageVM.swift */; };
+		29256CC42392A02D003CC0D8 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29256CC32392A02D003CC0D8 /* History.swift */; };
+		29256CC62392A046003CC0D8 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29256CC52392A046003CC0D8 /* HistoryVC.swift */; };
+		29256CC82392A04F003CC0D8 /* HistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29256CC72392A04F003CC0D8 /* HistoryVM.swift */; };
+		29256CCB2392A067003CC0D8 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29256CCA2392A067003CC0D8 /* HistoryCell.swift */; };
+		29256CCD2392ADDB003CC0D8 /* ListHistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29256CCC2392ADDB003CC0D8 /* ListHistoryVM.swift */; };
+		29256CD02392B399003CC0D8 /* HistoryChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29256CCF2392B399003CC0D8 /* HistoryChatVC.swift */; };
+		29256CD42392B3BC003CC0D8 /* HistoryChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29256CD32392B3BC003CC0D8 /* HistoryChatVM.swift */; };
 		292C853723535F3A00E215A4 /* LoginGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292C853623535F3A00E215A4 /* LoginGuideVC.swift */; };
 		2935030323645F5D00F0C571 /* RequestOrderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2935030223645F5D00F0C571 /* RequestOrderVM.swift */; };
 		293A2727235192480063D107 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293A2726235192480063D107 /* MapVC.swift */; };
@@ -20,6 +27,9 @@
 		293F81F4236DD3D7001F5436 /* PatientKonselorChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F81F3236DD3D7001F5436 /* PatientKonselorChatCell.swift */; };
 		2941423D235831440030E227 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941423C235831440030E227 /* EditProfileVC.swift */; };
 		295669AC234EDF6D00F2E14F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 295669AB234EDF6D00F2E14F /* GoogleService-Info.plist */; };
+		295D260523924D9900197ECE /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D260423924D9900197ECE /* RatingVC.swift */; };
+		295D260723924DA600197ECE /* RatingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D260623924DA600197ECE /* RatingVM.swift */; };
+		295D260A2392526700197ECE /* RatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D26092392526700197ECE /* RatingStackView.swift */; };
 		295E65D8236A83440042FEE8 /* ListKonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E65D7236A83440042FEE8 /* ListKonselingVC.swift */; };
 		295E65DA236A834F0042FEE8 /* ListKonselingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E65D9236A834F0042FEE8 /* ListKonselingVM.swift */; };
 		295E65DD236A83DA0042FEE8 /* ListKonselingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E65DC236A83DA0042FEE8 /* ListKonselingCell.swift */; };
@@ -57,6 +67,9 @@
 		299D1278236171940036A626 /* KonselorLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299D1277236171940036A626 /* KonselorLoginVM.swift */; };
 		29A69EEC236032CF0067968B /* OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EEB236032CF0067968B /* OrderVC.swift */; };
 		29A69EEE236032E00067968B /* OrderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EED236032E00067968B /* OrderVM.swift */; };
+		29AB059F239367BF0085C9C7 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB059E239367BF0085C9C7 /* BookingVC.swift */; };
+		29AB05A1239367CA0085C9C7 /* BookingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05A0239367CA0085C9C7 /* BookingVM.swift */; };
+		29AB05A42393680B0085C9C7 /* BookingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05A32393680B0085C9C7 /* BookingCell.swift */; };
 		29BC5122236DEBB7000774F5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BC5121236DEBB7000774F5 /* Message.swift */; };
 		29BE9DEF238772F100E24485 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DEE238772F100E24485 /* ChatVC.swift */; };
 		29BE9DF12387730000E24485 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF02387730000E24485 /* ChatVM.swift */; };
@@ -84,6 +97,13 @@
 		290708F32354510700A0DEE9 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		290708F52354511200A0DEE9 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		2908A083236E9EF500252C8F /* PatientMessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientMessageVM.swift; sourceTree = "<group>"; };
+		29256CC32392A02D003CC0D8 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		29256CC52392A046003CC0D8 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
+		29256CC72392A04F003CC0D8 /* HistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVM.swift; sourceTree = "<group>"; };
+		29256CCA2392A067003CC0D8 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		29256CCC2392ADDB003CC0D8 /* ListHistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHistoryVM.swift; sourceTree = "<group>"; };
+		29256CCF2392B399003CC0D8 /* HistoryChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryChatVC.swift; sourceTree = "<group>"; };
+		29256CD32392B3BC003CC0D8 /* HistoryChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryChatVM.swift; sourceTree = "<group>"; };
 		292C853623535F3A00E215A4 /* LoginGuideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuideVC.swift; sourceTree = "<group>"; };
 		2935030223645F5D00F0C571 /* RequestOrderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOrderVM.swift; sourceTree = "<group>"; };
 		293A2726235192480063D107 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -94,6 +114,9 @@
 		293F81F3236DD3D7001F5436 /* PatientKonselorChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientKonselorChatCell.swift; sourceTree = "<group>"; };
 		2941423C235831440030E227 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		295669AB234EDF6D00F2E14F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		295D260423924D9900197ECE /* RatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
+		295D260623924DA600197ECE /* RatingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingVM.swift; sourceTree = "<group>"; };
+		295D26092392526700197ECE /* RatingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStackView.swift; sourceTree = "<group>"; };
 		295E65D7236A83440042FEE8 /* ListKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselingVC.swift; sourceTree = "<group>"; };
 		295E65D9236A834F0042FEE8 /* ListKonselingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselingVM.swift; sourceTree = "<group>"; };
 		295E65DC236A83DA0042FEE8 /* ListKonselingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselingCell.swift; sourceTree = "<group>"; };
@@ -135,6 +158,9 @@
 		299D1277236171940036A626 /* KonselorLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorLoginVM.swift; sourceTree = "<group>"; };
 		29A69EEB236032CF0067968B /* OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVC.swift; sourceTree = "<group>"; };
 		29A69EED236032E00067968B /* OrderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVM.swift; sourceTree = "<group>"; };
+		29AB059E239367BF0085C9C7 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
+		29AB05A0239367CA0085C9C7 /* BookingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVM.swift; sourceTree = "<group>"; };
+		29AB05A32393680B0085C9C7 /* BookingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCell.swift; sourceTree = "<group>"; };
 		29BC5121236DEBB7000774F5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		29BE9DEE238772F100E24485 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		29BE9DF02387730000E24485 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
@@ -204,6 +230,66 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		29256CC02392A008003CC0D8 /* HistoryOrderScreen */ = {
+			isa = PBXGroup;
+			children = (
+				29256CC92392A055003CC0D8 /* Cell */,
+				29256CC22392A01D003CC0D8 /* ViewModel */,
+				29256CC12392A017003CC0D8 /* ViewController */,
+			);
+			path = HistoryOrderScreen;
+			sourceTree = "<group>";
+		};
+		29256CC12392A017003CC0D8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29256CC52392A046003CC0D8 /* HistoryVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		29256CC22392A01D003CC0D8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29256CC72392A04F003CC0D8 /* HistoryVM.swift */,
+				29256CCC2392ADDB003CC0D8 /* ListHistoryVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29256CC92392A055003CC0D8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				29256CCA2392A067003CC0D8 /* HistoryCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		29256CCE2392B381003CC0D8 /* HistoryChatScreen */ = {
+			isa = PBXGroup;
+			children = (
+				29256CD22392B3AB003CC0D8 /* ViewModel */,
+				29256CD12392B39F003CC0D8 /* ViewController */,
+			);
+			path = HistoryChatScreen;
+			sourceTree = "<group>";
+		};
+		29256CD12392B39F003CC0D8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29256CCF2392B399003CC0D8 /* HistoryChatVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		29256CD22392B3AB003CC0D8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29256CD32392B3BC003CC0D8 /* HistoryChatVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		292C853523535F2500E215A4 /* LoginGuideScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +337,40 @@
 				2941423C235831440030E227 /* EditProfileVC.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		295D260123924D7100197ECE /* RatingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				295D26082392524100197ECE /* CustomView */,
+				295D260323924D8100197ECE /* ViewModel */,
+				295D260223924D7B00197ECE /* ViewController */,
+			);
+			path = RatingScreen;
+			sourceTree = "<group>";
+		};
+		295D260223924D7B00197ECE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				295D260423924D9900197ECE /* RatingVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		295D260323924D8100197ECE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				295D260623924DA600197ECE /* RatingVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		295D26082392524100197ECE /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				295D26092392526700197ECE /* RatingStackView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		295E65D4236A82C80042FEE8 /* ListKonseling */ = {
@@ -344,6 +464,7 @@
 				29757F792360732F00799CDD /* Order.swift */,
 				29794959236B21F80064D679 /* ChatRoom.swift */,
 				29BC5121236DEBB7000774F5 /* Message.swift */,
+				29256CC32392A02D003CC0D8 /* History.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -605,6 +726,40 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		29AB059B2393679D0085C9C7 /* BookingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				29AB05A2239367D80085C9C7 /* Cell */,
+				29AB059D239367AC0085C9C7 /* ViewModel */,
+				29AB059C239367A60085C9C7 /* ViewController */,
+			);
+			path = BookingScreen;
+			sourceTree = "<group>";
+		};
+		29AB059C239367A60085C9C7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29AB059E239367BF0085C9C7 /* BookingVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		29AB059D239367AC0085C9C7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29AB05A0239367CA0085C9C7 /* BookingVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29AB05A2239367D80085C9C7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				29AB05A32393680B0085C9C7 /* BookingCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		29BE9DEB238772CD00E24485 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +789,10 @@
 		29EC0CA6234D94BC0091C126 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				29AB059B2393679D0085C9C7 /* BookingScreen */,
+				29256CCE2392B381003CC0D8 /* HistoryChatScreen */,
+				29256CC02392A008003CC0D8 /* HistoryOrderScreen */,
+				295D260123924D7100197ECE /* RatingScreen */,
 				29A69EE8236032A90067968B /* OrderScreen */,
 				29414239235831210030E227 /* EditProfileScreen */,
 				290708F0235450DE00A0DEE9 /* ProfileScreen */,
@@ -904,6 +1063,7 @@
 			files = (
 				29BE9DEF238772F100E24485 /* ChatVC.swift in Sources */,
 				2994F30A234C3B03009CBBF2 /* ShareStory.xcdatamodeld in Sources */,
+				29256CC42392A02D003CC0D8 /* History.swift in Sources */,
 				296A550F2363FA0900785EE9 /* KonselingCell.swift in Sources */,
 				295E75EC234F0C69002612A4 /* DataService.swift in Sources */,
 				295E65D8236A83440042FEE8 /* ListKonselingVC.swift in Sources */,
@@ -914,10 +1074,16 @@
 				296A550A2363F9DD00785EE9 /* OrderKonselingVC.swift in Sources */,
 				295E75F0234F0DA0002612A4 /* Config.swift in Sources */,
 				295E75DD234EEC4B002612A4 /* LoginVC.swift in Sources */,
+				29256CD42392B3BC003CC0D8 /* HistoryChatVM.swift in Sources */,
 				2994F2FE234C3B03009CBBF2 /* AppDelegate.swift in Sources */,
+				295D260723924DA600197ECE /* RatingVM.swift in Sources */,
+				29256CC82392A04F003CC0D8 /* HistoryVM.swift in Sources */,
 				293A27292351925A0063D107 /* MapVM.swift in Sources */,
 				296F45C8235222DF009477FA /* DetailKonselorVC.swift in Sources */,
 				29BE9DF723877A2C00E24485 /* KonselorMessageVM.swift in Sources */,
+				29256CCD2392ADDB003CC0D8 /* ListHistoryVM.swift in Sources */,
+				29AB059F239367BF0085C9C7 /* BookingVC.swift in Sources */,
+				29AB05A1239367CA0085C9C7 /* BookingVM.swift in Sources */,
 				295E75E5234EEC8C002612A4 /* RegisterVM.swift in Sources */,
 				293A272B2351AF340063D107 /* Konselor.swift in Sources */,
 				293F81F2236DD301001F5436 /* SenderKonselorChatCell.swift in Sources */,
@@ -928,12 +1094,14 @@
 				295E65DA236A834F0042FEE8 /* ListKonselingVM.swift in Sources */,
 				295E75DF234EEC56002612A4 /* LoginVM.swift in Sources */,
 				29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */,
+				29256CD02392B399003CC0D8 /* HistoryChatVC.swift in Sources */,
 				29BE9DF12387730000E24485 /* ChatVM.swift in Sources */,
 				293F81EF236DD100001F5436 /* ChatLabel.swift in Sources */,
 				2979495A236B21F80064D679 /* ChatRoom.swift in Sources */,
 				29757F7A2360732F00799CDD /* Order.swift in Sources */,
 				290708F62354511200A0DEE9 /* ProfileVM.swift in Sources */,
 				2994F300234C3B03009CBBF2 /* SceneDelegate.swift in Sources */,
+				29256CCB2392A067003CC0D8 /* HistoryCell.swift in Sources */,
 				29794958236B17100064D679 /* KonselorChatVM.swift in Sources */,
 				293A2727235192480063D107 /* MapVC.swift in Sources */,
 				295E75E9234F05A2002612A4 /* User.swift in Sources */,
@@ -946,13 +1114,17 @@
 				295E75D8234EE37D002612A4 /* SplashVM.swift in Sources */,
 				29794951236B02FB0064D679 /* KonselingVM.swift in Sources */,
 				29A69EEC236032CF0067968B /* OrderVC.swift in Sources */,
+				29256CC62392A046003CC0D8 /* HistoryVC.swift in Sources */,
 				299D1276236171760036A626 /* KonselorLoginVC.swift in Sources */,
 				296A550C2363F9EA00785EE9 /* OrderKonselingVM.swift in Sources */,
+				29AB05A42393680B0085C9C7 /* BookingCell.swift in Sources */,
 				29FF4A2E234D53800043AE81 /* SplashVC.swift in Sources */,
 				298C76D32352D751001DB2C7 /* ListKonselorCell.swift in Sources */,
 				290708F42354510700A0DEE9 /* ProfileVC.swift in Sources */,
+				295D260523924D9900197ECE /* RatingVC.swift in Sources */,
 				2941423D235831440030E227 /* EditProfileVC.swift in Sources */,
 				295E75E3234EEC72002612A4 /* RegisterVC.swift in Sources */,
+				295D260A2392526700197ECE /* RatingStackView.swift in Sources */,
 				299D1278236171940036A626 /* KonselorLoginVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

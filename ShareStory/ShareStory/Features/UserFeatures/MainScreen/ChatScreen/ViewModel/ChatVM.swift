@@ -16,6 +16,7 @@ class ChatVM {
     private let _konselor = BehaviorRelay<Konselor?>(value: nil)
     private let _messages = BehaviorRelay<[Message]>(value: [])
     private let _hasError = BehaviorRelay<Bool>(value: false)
+    private let _isKonselingFinished = BehaviorRelay<Bool>(value: false)
     
     var messages: Driver<[Message]> {
         return _messages.asDriver()
@@ -25,8 +26,16 @@ class ChatVM {
         return _hasError.asDriver()
     }
     
+    var isKonselingFinished: Driver<Bool> {
+        return _isKonselingFinished.asDriver()
+    }
+    
     var numberOfMessages: Int {
         return _messages.value.count
+    }
+    
+    var konselorData: Driver<Konselor?> {
+        return _konselor.asDriver()
     }
     
     func sendMessage(content: String, chatRoom: ChatRoom) {
@@ -43,6 +52,15 @@ class ChatVM {
             self?._konselor.accept(konselor)
         }) { [weak self] in
             self?._hasError.accept(true)
+        }
+    }
+    
+    func finishKonseling(chatRoom: ChatRoom) {
+        DataService.shared.finishKonseling(chatRoom: chatRoom) { [weak self] (success, konselor) in
+            if success {
+                self?._isKonselingFinished.accept(true)
+                self?._konselor.accept(konselor)
+            }
         }
     }
     

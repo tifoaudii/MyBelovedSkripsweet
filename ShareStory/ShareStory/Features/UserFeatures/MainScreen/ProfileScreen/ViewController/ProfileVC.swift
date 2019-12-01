@@ -32,6 +32,7 @@ class ProfileVC: UIViewController {
         
         self.checkCurrentUser()
         self.bindViewModel()
+        self.setupTapRecognizer()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,6 +78,11 @@ class ProfileVC: UIViewController {
             }).disposed(by: disposeBag)
     }
     
+    func setupTapRecognizer() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.navigateToHistoryView))
+        self.historyView.addGestureRecognizer(tapGesture)
+    }
+    
     fileprivate func checkCurrentUser() {
         self.profileVM.checkCurrentUser()
     }
@@ -98,6 +104,11 @@ class ProfileVC: UIViewController {
 }
 
 extension ProfileVC: UpdateProfileDelegate {
+    
+    @objc func navigateToHistoryView() {
+        let historyVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "HistoryVC") as HistoryVC
+        self.navigationController?.pushViewController(historyVC, animated: true)
+    }
     
     func didUpdatedProfile() {
         self.profileVM.getUserData()

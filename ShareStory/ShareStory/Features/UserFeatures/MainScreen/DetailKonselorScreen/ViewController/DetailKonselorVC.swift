@@ -44,6 +44,8 @@ class DetailKonselorVC: UIViewController {
         self.konselorNameLabel.text = konselor?.name
         self.konselorUniversityLabel.text = konselor?.university
         self.konselorAddressLabel.text = konselor?.address
+        self.konselorImage.kf.setImage(with: URL(string: konselor?.photoUrl ?? ""))
+        self.konselorImage.layer.cornerRadius = self.konselorImage.frame.width / 2
     }
     
     @IBAction func startKonseling(_ sender: Any) {

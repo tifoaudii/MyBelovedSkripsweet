@@ -29,5 +29,14 @@ class ListKonselorCell: UITableViewCell {
     func configureCell(konselor: Konselor) {
         self.konselorNameLabel.text = konselor.name
         self.distanceLabel.text = "\(konselor.distance) km"
+        
+        if konselor.rating > 0 {
+            let ratingValue = konselor.rating / Double(konselor.patientCount)
+            self.ratingLabel.text = "\(round(10 * ratingValue) / 10)"
+        } else {
+            self.ratingLabel.text = "\(konselor.rating)"
+        }
+        
+        self.konselorImageView.kf.setImage(with: URL(string: konselor.photoUrl))
     }
 }

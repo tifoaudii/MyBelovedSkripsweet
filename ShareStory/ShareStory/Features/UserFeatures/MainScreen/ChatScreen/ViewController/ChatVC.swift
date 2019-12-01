@@ -20,6 +20,7 @@ class ChatVC: UIViewController {
     private var messages = [Message]()
     private let chatVM = ChatVM()
     private let disposeBag = DisposeBag()
+    private var konselorData: Konselor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,22 @@ class ChatVC: UIViewController {
                     self.showErrorMessage()
                 }
             }).disposed(by: disposeBag)
+        
+        self.chatVM.isKonselingFinished
+            .drive(onNext: { [unowned self] isKonselingFinished in
+                if isKonselingFinished {
+                    self.onKonselingFinished()
+                }
+            }).disposed(by: disposeBag)
+        
+        self.chatVM.konselorData
+            .drive(onNext: { [unowned self] konselorData in
+                guard let konselorData = konselorData else {
+                    return
+                }
+                
+                self.konselorData = konselorData
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func configureTableView() {
@@ -65,6 +82,10 @@ class ChatVC: UIViewController {
         }
         
         self.chatVM.sendMessage(content: message, chatRoom: chatRoom)
+    }
+    
+    @IBAction func endKonselingButtonDidClicked(_ sender: Any) {
+        self.showAlertForFinishingKonseling()
     }
 }
 
@@ -95,5 +116,29 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
     
     open func loadChatRoom(chatRoom: ChatRoom) {
         self.chatRoom = chatRoom
+    }
+    
+    func showAlertForFinishingKonseling() {
+        let alertController = UIAlertController(title: "Mohon Perhatian", message: "Apakah anda ingin mengakhiri sesi konseling?", preferredStyle: .actionSheet)
+        
+        let finishAction = UIAlertAction(title: "Ya", style: .default) { (_) in
+            if let chatRoom = self.chatRoom {
+                self.chatVM.finishKonseling(chatRoom: chatRoom)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Batalkan", style: .default, handler: nil)
+        alertController.addAction(finishAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func onKonselingFinished() {
+        let ratingVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "RatingVC") as RatingVC
+        if let konselorData = self.konselorData {
+            ratingVC.modalPresentationStyle = .fullScreen
+            ratingVC.setKonselor(konselor: konselorData)
+            self.present(ratingVC, animated: true, completion: nil)
+        }
     }
 }
