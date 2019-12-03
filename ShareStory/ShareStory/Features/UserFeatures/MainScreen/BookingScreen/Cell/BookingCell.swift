@@ -23,17 +23,16 @@ class BookingCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textAlignment = .center
-        label.backgroundColor = .secondarySystemBackground
         return label
     }()
 
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.timeLabel.backgroundColor = .systemTeal
+                self.backgroundColor = .systemTeal
                 self.timeLabel.textColor = .white
             } else {
-                self.timeLabel.backgroundColor = .secondarySystemBackground
+                self.backgroundColor = .secondarySystemBackground
                 self.timeLabel.textColor = .black
             }
         }
@@ -50,7 +49,7 @@ class BookingCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        self.backgroundColor = .clear
+        self.backgroundColor = .secondarySystemBackground
         self.addSubview(timeLabel)
         
         timeLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 8, width: 0, height: 0)

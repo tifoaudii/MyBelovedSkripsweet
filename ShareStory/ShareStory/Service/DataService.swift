@@ -39,6 +39,7 @@ class DataService {
     var REF_ORDER: DatabaseReference { return _REF_ORDER }
     var REF_CHATROOM: DatabaseReference { return _REF_CHATROOM }
     var REF_HISTORY: DatabaseReference { return _REF_HISTORY }
+    var REF_APPOINTMENT: DatabaseReference { return _REF_APPOINTMENT }
     
     //MARK:- Helper Function
     func registerUser(newUser: User, success: @escaping (_ success: Bool)-> Void, failure: @escaping (_ fail: Bool)-> Void) {
@@ -134,6 +135,7 @@ class DataService {
                 failure()
                 return
             }
+                
             
             for konselor in rawKonselor {
                 let name = konselor.childSnapshot(forPath: "name").value as! String
@@ -146,8 +148,13 @@ class DataService {
                 let rating = konselor.childSnapshot(forPath: "rating").value as! Double
                 let patientCount = konselor.childSnapshot(forPath: "patient_count").value as! Int
                 let photoUrl = konselor.childSnapshot(forPath: "photoUrl").value as! String
-                
-                let newKonselor = Konselor(id: konselor.key, name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance, patientCount: patientCount, rating: rating, photoUrl: photoUrl)
+                let mondaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Monday").value as! String
+                let tuesdaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Tuesday").value as! String
+                let wednesdaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Wednesday").value as! String
+                let thursdaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Thursday").value as! String
+                let fridaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Friday").value as! String
+                let konselorSchedule = KonselorSchedule(monday: mondaySchedule, tuesday: tuesdaySchedule, wednesday: wednesdaySchedule, thursday: thursdaySchedule, friday: fridaySchedule)
+                let newKonselor = Konselor(id: konselor.key, name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance, patientCount: patientCount, rating: rating, photoUrl: photoUrl, schedule: konselorSchedule)
                 
                 if newKonselor.isOnline {
                     konselorArray.append(newKonselor)
@@ -219,9 +226,14 @@ class DataService {
                     let patientCount = konselor.childSnapshot(forPath: "patient_count").value as! Int
                     let rating = konselor.childSnapshot(forPath: "rating").value as! Double
                     let photoUrl = konselor.childSnapshot(forPath: "photoUrl").value as! String
-                    
-                    let currentKonselor = Konselor(id: konselor.key, name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance, patientCount: patientCount, rating: rating, photoUrl: photoUrl)
-                    completion(currentKonselor)
+                    let mondaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Monday").value as! String
+                    let tuesdaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Tuesday").value as! String
+                    let wednesdaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Wednesday").value as! String
+                    let thursdaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Thursday").value as! String
+                    let fridaySchedule = konselor.childSnapshot(forPath: "schedule").childSnapshot(forPath: "Friday").value as! String
+                    let konselorSchedule = KonselorSchedule(monday: mondaySchedule, tuesday: tuesdaySchedule, wednesday: wednesdaySchedule, thursday: thursdaySchedule, friday: fridaySchedule)
+                    let newKonselor = Konselor(id: konselor.key, name: name, address: address, university: university, latitude: latitude, longitude: longitude, isOnline: isOnline, distance: distance, patientCount: patientCount, rating: rating, photoUrl: photoUrl, schedule: konselorSchedule)
+                    completion(newKonselor)
                     break
                 }
             }
@@ -585,8 +597,46 @@ class DataService {
                 }
             }
             
-            historyArray = historyArray.sorted(by: { $0.date.compare($1.date) == .orderedAscending })
+            historyArray = historyArray.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
             completion(historyArray)
+        }
+    }
+    
+    func createAppointment(time: String, konselor: Konselor, completion: @escaping(_ success: Bool)->()) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let newAppointment = [
+            "photoUrl": konselor.photoUrl,
+            "date": time,
+            "patientId": uid,
+            "konselorName": konselor.name
+        ]
+        
+        REF_APPOINTMENT.childByAutoId().updateChildValues(newAppointment)
+        completion(true)
+    }
+    
+    func fetchAppointments(completion: @escaping (_ appointment: [Appointment])->(), failure: @escaping ()->()) {
+        REF_APPOINTMENT.observeSingleEvent(of: .value) { (dataSnapshot) in
+            
+            var appointmentArray = [Appointment]()
+            
+            guard let appointmentSnapshot = dataSnapshot.children.allObjects as? [DataSnapshot], let uid = Auth.auth().currentUser?.uid else {
+                return failure()
+            }
+            
+            for appointment in appointmentSnapshot {
+                let patientId = appointment.childSnapshot(forPath: "patientId").value as! String
+                if uid == patientId {
+                    let photoUrl = appointment.childSnapshot(forPath: "photoUrl").value as! String
+                    let konselorName = appointment.childSnapshot(forPath: "konselorName").value as! String
+                    let dateString = appointment.childSnapshot(forPath: "date").value as! String
+                    let newAppointment = Appointment(konselorPhotoUrl: photoUrl, konselorName: konselorName, date: dateString)
+                    appointmentArray.append(newAppointment)
+                }
+            }
+            
+            completion(appointmentArray)
         }
     }
 }

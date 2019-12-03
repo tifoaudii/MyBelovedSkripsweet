@@ -58,6 +58,7 @@ extension HistoryVC: UITableViewDelegate, UITableViewDataSource {
         let historyChatVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "HistoryChatVC") as HistoryChatVC
         historyChatVC.loadChatRoom(chatRoom: chatRoom)
         self.navigationController?.pushViewController(historyChatVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

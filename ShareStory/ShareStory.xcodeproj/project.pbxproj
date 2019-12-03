@@ -70,6 +70,9 @@
 		29AB059F239367BF0085C9C7 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB059E239367BF0085C9C7 /* BookingVC.swift */; };
 		29AB05A1239367CA0085C9C7 /* BookingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05A0239367CA0085C9C7 /* BookingVM.swift */; };
 		29AB05A42393680B0085C9C7 /* BookingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05A32393680B0085C9C7 /* BookingCell.swift */; };
+		29AB05AB2393D9E00085C9C7 /* AppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05AA2393D9E00085C9C7 /* AppointmentVC.swift */; };
+		29AB05B02393DA620085C9C7 /* ListAppointmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05AF2393DA620085C9C7 /* ListAppointmentVM.swift */; };
+		29AB05B32393DC190085C9C7 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05B22393DC190085C9C7 /* AppointmentCell.swift */; };
 		29BC5122236DEBB7000774F5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BC5121236DEBB7000774F5 /* Message.swift */; };
 		29BE9DEF238772F100E24485 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DEE238772F100E24485 /* ChatVC.swift */; };
 		29BE9DF12387730000E24485 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF02387730000E24485 /* ChatVM.swift */; };
@@ -161,6 +164,9 @@
 		29AB059E239367BF0085C9C7 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
 		29AB05A0239367CA0085C9C7 /* BookingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVM.swift; sourceTree = "<group>"; };
 		29AB05A32393680B0085C9C7 /* BookingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCell.swift; sourceTree = "<group>"; };
+		29AB05AA2393D9E00085C9C7 /* AppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentVC.swift; sourceTree = "<group>"; };
+		29AB05AF2393DA620085C9C7 /* ListAppointmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAppointmentVM.swift; sourceTree = "<group>"; };
+		29AB05B22393DC190085C9C7 /* AppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
 		29BC5121236DEBB7000774F5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		29BE9DEE238772F100E24485 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		29BE9DF02387730000E24485 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
@@ -760,6 +766,40 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		29AB05A72393D9BB0085C9C7 /* AppointmentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				29AB05B12393DC0B0085C9C7 /* Cell */,
+				29AB05A92393D9D10085C9C7 /* ViewModel */,
+				29AB05A82393D9CB0085C9C7 /* ViewController */,
+			);
+			path = AppointmentScreen;
+			sourceTree = "<group>";
+		};
+		29AB05A82393D9CB0085C9C7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29AB05AA2393D9E00085C9C7 /* AppointmentVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		29AB05A92393D9D10085C9C7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29AB05AF2393DA620085C9C7 /* ListAppointmentVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29AB05B12393DC0B0085C9C7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				29AB05B22393DC190085C9C7 /* AppointmentCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		29BE9DEB238772CD00E24485 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -789,6 +829,7 @@
 		29EC0CA6234D94BC0091C126 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				29AB05A72393D9BB0085C9C7 /* AppointmentScreen */,
 				29AB059B2393679D0085C9C7 /* BookingScreen */,
 				29256CCE2392B381003CC0D8 /* HistoryChatScreen */,
 				29256CC02392A008003CC0D8 /* HistoryOrderScreen */,
@@ -1077,6 +1118,7 @@
 				29256CD42392B3BC003CC0D8 /* HistoryChatVM.swift in Sources */,
 				2994F2FE234C3B03009CBBF2 /* AppDelegate.swift in Sources */,
 				295D260723924DA600197ECE /* RatingVM.swift in Sources */,
+				29AB05B02393DA620085C9C7 /* ListAppointmentVM.swift in Sources */,
 				29256CC82392A04F003CC0D8 /* HistoryVM.swift in Sources */,
 				293A27292351925A0063D107 /* MapVM.swift in Sources */,
 				296F45C8235222DF009477FA /* DetailKonselorVC.swift in Sources */,
@@ -1087,6 +1129,7 @@
 				295E75E5234EEC8C002612A4 /* RegisterVM.swift in Sources */,
 				293A272B2351AF340063D107 /* Konselor.swift in Sources */,
 				293F81F2236DD301001F5436 /* SenderKonselorChatCell.swift in Sources */,
+				29AB05B32393DC190085C9C7 /* AppointmentCell.swift in Sources */,
 				298C76D52352E0BA001DB2C7 /* ListKonselorVM.swift in Sources */,
 				293F81F4236DD3D7001F5436 /* PatientKonselorChatCell.swift in Sources */,
 				2935030323645F5D00F0C571 /* RequestOrderVM.swift in Sources */,
@@ -1097,6 +1140,7 @@
 				29256CD02392B399003CC0D8 /* HistoryChatVC.swift in Sources */,
 				29BE9DF12387730000E24485 /* ChatVM.swift in Sources */,
 				293F81EF236DD100001F5436 /* ChatLabel.swift in Sources */,
+				29AB05AB2393D9E00085C9C7 /* AppointmentVC.swift in Sources */,
 				2979495A236B21F80064D679 /* ChatRoom.swift in Sources */,
 				29757F7A2360732F00799CDD /* Order.swift in Sources */,
 				290708F62354511200A0DEE9 /* ProfileVM.swift in Sources */,

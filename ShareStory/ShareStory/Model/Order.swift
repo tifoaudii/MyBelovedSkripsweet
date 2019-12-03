@@ -31,3 +31,9 @@ struct AcceptedOrder {
     var chatRoom: ChatRoom
     var patient: User
 }
+
+struct Appointment {
+    var konselorPhotoUrl: String
+    var konselorName: String
+    var date: String
+}

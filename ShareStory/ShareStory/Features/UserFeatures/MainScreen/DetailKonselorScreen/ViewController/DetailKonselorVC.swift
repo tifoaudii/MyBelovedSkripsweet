@@ -29,11 +29,20 @@ class DetailKonselorVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? OrderVC else {
-            return
+        if segue.identifier == "order_segue" {
+            guard let destinationVC = segue.destination as? OrderVC else {
+                return
+            }
+            
+            destinationVC.modalPresentationStyle = .fullScreen
+        } else {
+            guard let destinationVC = segue.destination as? BookingVC, let konselor = self.konselor else {
+                return
+            }
+            
+            destinationVC.setKonselor(konselor: konselor)
+            destinationVC.modalPresentationStyle = .fullScreen
         }
-        
-        destinationVC.modalPresentationStyle = .fullScreen
     }
     
     fileprivate func setupView() {

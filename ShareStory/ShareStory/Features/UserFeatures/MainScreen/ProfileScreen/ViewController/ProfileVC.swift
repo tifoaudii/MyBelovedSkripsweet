@@ -20,6 +20,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var userAgeLabel: UILabel!
     @IBOutlet weak var userGenderLabel: UILabel!
     @IBOutlet weak var historyView: UIView!
+    @IBOutlet weak var appointmentView: UIView!
     
     private let loginGuideVC = UIStoryboard.init(name: "Main", bundle: nil)
         .instantiateViewController(identifier: "LoginGuideVC") as! LoginGuideVC
@@ -79,8 +80,10 @@ class ProfileVC: UIViewController {
     }
     
     func setupTapRecognizer() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.navigateToHistoryView))
-        self.historyView.addGestureRecognizer(tapGesture)
+        let historyTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.navigateToHistoryView))
+        let appointmentTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.navigateToListAppointmentView))
+        self.historyView.addGestureRecognizer(historyTapGesture)
+        self.appointmentView.addGestureRecognizer(appointmentTapGesture)
     }
     
     fileprivate func checkCurrentUser() {
@@ -108,6 +111,11 @@ extension ProfileVC: UpdateProfileDelegate {
     @objc func navigateToHistoryView() {
         let historyVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "HistoryVC") as HistoryVC
         self.navigationController?.pushViewController(historyVC, animated: true)
+    }
+    
+    @objc func navigateToListAppointmentView() {
+        let appointmentVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AppointmentVC") as AppointmentVC
+        self.navigationController?.pushViewController(appointmentVC, animated: true)
     }
     
     func didUpdatedProfile() {

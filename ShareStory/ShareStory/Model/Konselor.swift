@@ -23,8 +23,9 @@ class Konselor: NSObject, MKAnnotation {
     var rating: Double
     var photoUrl: String
     var title: String?
+    var schedule: KonselorSchedule
     
-    init(id: String, name: String, address: String, university: String, latitude: Double, longitude: Double, isOnline: Bool, distance: Double = 0, patientCount: Int, rating: Double, photoUrl: String) {
+    init(id: String, name: String, address: String, university: String, latitude: Double, longitude: Double, isOnline: Bool, distance: Double = 0, patientCount: Int, rating: Double, photoUrl: String, schedule: KonselorSchedule) {
         self.id = id
         self.name = name
         self.address = address
@@ -38,7 +39,15 @@ class Konselor: NSObject, MKAnnotation {
         self.rating = rating
         self.patientCount = patientCount
         self.photoUrl = photoUrl
+        self.schedule = schedule
         super.init()
     }
+}
 
+struct KonselorSchedule {
+    var monday: String
+    var tuesday: String
+    var wednesday: String
+    var thursday: String
+    var friday: String
 }

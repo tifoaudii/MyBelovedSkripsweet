@@ -16,6 +16,7 @@ let _REF_KONSELOR = DB_BASE.child("konselor")
 let _REF_ORDER = DB_BASE.child("order")
 let _REF_CHATROOM = DB_BASE.child("chat_room")
 let _REF_HISTORY = DB_BASE.child("history_order")
+let _REF_APPOINTMENT = DB_BASE.child("appointment")
 
 //MARK:- Important Constant
 let USER_LOCATION_KEY = "user-location-key"

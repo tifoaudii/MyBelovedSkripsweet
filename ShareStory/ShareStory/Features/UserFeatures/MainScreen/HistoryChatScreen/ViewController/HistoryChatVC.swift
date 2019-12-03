@@ -33,6 +33,7 @@ class HistoryChatVC: UIViewController {
         }
         
         self.chatVM.fetchMessages(chatRoom: chatRoom)
+        self.chatVM.observeMessage(chatRoom: chatRoom)
     }
     
     fileprivate func bindViewModel() {
