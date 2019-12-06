@@ -129,7 +129,7 @@
 		295E75E2234EEC72002612A4 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		295E75E4234EEC8C002612A4 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
 		295E75E8234F05A2002612A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		295E75EB234F0C69002612A4 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		295E75EB234F0C69002612A4 /* DataService.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; tabWidth = 2; };
 		295E75EF234F0DA0002612A4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		296A55092363F9DD00785EE9 /* OrderKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderKonselingVC.swift; sourceTree = "<group>"; };
 		296A550B2363F9EA00785EE9 /* OrderKonselingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderKonselingVM.swift; sourceTree = "<group>"; };
@@ -232,6 +232,29 @@
 			isa = PBXGroup;
 			children = (
 				290708F52354511200A0DEE9 /* ProfileVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		290FF1FF2397F51B001478AE /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				290FF2012397F52C001478AE /* ViewModel */,
+				290FF2002397F526001478AE /* ViewController */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		290FF2002397F526001478AE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		290FF2012397F52C001478AE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -674,6 +697,7 @@
 		299D127123616FB90036A626 /* KonselorFeatures */ = {
 			isa = PBXGroup;
 			children = (
+				290FF1FF2397F51B001478AE /* ProfileScreen */,
 				29794952236B16E50064D679 /* ChatScreen */,
 				295E65D4236A82C80042FEE8 /* ListKonseling */,
 				296A55062363F1FA00785EE9 /* RequestKonselingScreen */,

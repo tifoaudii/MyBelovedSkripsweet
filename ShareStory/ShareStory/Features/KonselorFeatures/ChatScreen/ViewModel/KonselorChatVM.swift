@@ -15,9 +15,14 @@ class KonselorChatVM {
     private let _patient = BehaviorRelay<User?>(value: nil)
     private let _messages = BehaviorRelay<[Message]>(value: [])
     private let _hasError = BehaviorRelay<Bool>(value: false)
+    private let _isKonselingOver = BehaviorRelay<Bool>(value: false)
     
     var messages: Driver<[Message]> {
         return _messages.asDriver()
+    }
+    
+    var isKonselingOver: Driver<Bool> {
+        return _isKonselingOver.asDriver()
     }
     
     var hasError: Driver<Bool> {
@@ -39,6 +44,16 @@ class KonselorChatVM {
             self?._patient.accept(patient)
         }) { [weak self] in
             self?._hasError.accept(true)
+        }
+    }
+    
+    func observeKonseling(chatRoom: ChatRoom) {
+        DataService.shared.REF_CHATROOM.child(chatRoom.id).child("status").observe(.value) { (valueSnapshot) in
+            let chatStatus = valueSnapshot.value as! String
+            
+            if chatStatus == ChatRoomStatus.done.rawValue {
+                self._isKonselingOver.accept(true)
+            }
         }
     }
     

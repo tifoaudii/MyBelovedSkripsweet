@@ -37,6 +37,7 @@ class KonselorChatVC: UIViewController {
         
         self.chatVM.fetchAllMessages(chatRoom: chatRoom)
         self.chatVM.observeMessage(chatRoom: chatRoom)
+        self.chatVM.observeKonseling(chatRoom: chatRoom)
     }
     
     fileprivate func bindViewModel() {
@@ -51,6 +52,13 @@ class KonselorChatVC: UIViewController {
             .drive(onNext: { [unowned self] hasError in
                 if hasError {
                     self.showErrorMessage()
+                }
+            }).disposed(by: disposeBag)
+        
+        self.chatVM.isKonselingOver
+            .drive(onNext: { [unowned self] isKonselingOver in
+                if isKonselingOver {
+                    self.navigationController?.popViewController(animated: true)
                 }
             }).disposed(by: disposeBag)
     }

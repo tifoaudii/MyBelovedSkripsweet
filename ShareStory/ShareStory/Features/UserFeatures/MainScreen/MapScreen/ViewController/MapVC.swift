@@ -18,7 +18,7 @@ class MapVC: UIViewController {
     private let mapVM = MapVM()
     private let disposeBag = DisposeBag()
     private let locationManager = CLLocationManager()
-    private let regionRadius: CLLocationDistance = 1000
+    private let regionRadius: CLLocationDistance = 10000
     private var konselors = [Konselor]()
     private let mapViewIdentifier = "MapViewAnnotationIdentifier"
     
