@@ -20,8 +20,6 @@ class SplashVC: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-//      self.configureLocationManager()
-//      self.getUserLocation()
       self.bindViewModel()
    }
    
@@ -34,33 +32,27 @@ class SplashVC: UIViewController {
    }
    
    fileprivate func bindViewModel() {
-//      self.splashVM
-//         .isUpdateUserLocationSuccess
-//         .drive(onNext: { [unowned self] success in
-//            if success {
-//               DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [unowned self] in
-//                  self.performSegue(withIdentifier: "welcome_segue", sender: nil)
-//               }
-//            }
-//         }).disposed(by: disposeBag)
       
-      DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [unowned self] in
-         self.performSegue(withIdentifier: "welcome_segue", sender: nil)
+      if let _ = Auth.auth().currentUser {
+         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [unowned self] in
+            if DataService.shared.isKonselorLoggedIn {
+               self.navigateToMainKonselor()
+            } else {
+               self.navigataToMainScreen()
+            }
+         }
+      } else {
+         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [unowned self] in
+            self.performSegue(withIdentifier: "welcome_segue", sender: nil)
+         }
       }
    }
+   
+   func navigateToMainKonselor() {
+      let mainVC = UIStoryboard.init(name: "Konselor", bundle: nil).instantiateViewController(identifier: "KonselorMain")
+      mainVC.modalPresentationStyle = .fullScreen
+      self.present(mainVC, animated: true, completion: nil)
+   }
+   
+   
 }
-
-//extension SplashVC: CLLocationManagerDelegate {
-//
-//   fileprivate func configureLocationManager() {
-//      self.locationManager.delegate = self
-//      self.locationManager.startUpdatingLocation()
-//      if CLLocationManager.authorizationStatus() == .notDetermined {
-//         locationManager.requestAlwaysAuthorization()
-//      }
-//   }
-//
-//   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//
-//   }
-//}

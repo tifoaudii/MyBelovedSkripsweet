@@ -33,9 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
-        DispatchQueue.global(qos: .utility).async {
-            DataService.shared.userLocation = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
-        }
+        DataService.shared.userLocation = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

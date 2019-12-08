@@ -15,6 +15,8 @@ class BookingVC: UIViewController {
     @IBOutlet weak var konselorImageView: UIImageView!
     @IBOutlet weak var konselorNameLabel: UILabel!
     @IBOutlet weak var scheduleLabel: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
+    
     
     let scheduleCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
@@ -23,6 +25,13 @@ class BookingVC: UIViewController {
         collectionView.collectionViewLayout = viewLayout
         collectionView.backgroundColor = .clear
         return collectionView
+    }()
+    
+    let emptyLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Tidak ada jadwal tersedia"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        return label
     }()
     
     private let bookingVM = BookingVM()
@@ -49,6 +58,7 @@ class BookingVC: UIViewController {
         self.bookingVM.times
             .drive(onNext: { [unowned self] times in
                 self.times = times
+                self.configureEmtpyLabel()
                 self.scheduleCollectionView.reloadData()
             }).disposed(by: disposeBag)
         
@@ -68,6 +78,19 @@ class BookingVC: UIViewController {
         self.konselorNameLabel.text = konselor?.name
         self.konselorImageView.kf.setImage(with: URL(string: konselor?.photoUrl ?? ""))
         self.konselorImageView.layer.cornerRadius = self.konselorImageView.frame.width / 2
+    }
+    
+    fileprivate func configureEmtpyLabel() {
+        if times.isEmpty {
+            self.sendButton.isEnabled = false
+            self.sendButton.alpha = 0.5
+            self.view.addSubview(emptyLabel)
+            emptyLabel.anchor(top: scheduleLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        } else {
+            self.sendButton.isEnabled = true
+            self.sendButton.alpha = 1.0
+            self.emptyLabel.removeFromSuperview()
+        }
     }
     
     fileprivate func configureCollectionView() {
@@ -115,6 +138,7 @@ extension BookingVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             cell.backgroundColor = .lightGray
             cell.alpha = 0.75
         }
+        
         return cell
     }
     

@@ -14,11 +14,12 @@ import RxCocoa
 class MapVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var centerButton: UIButton!
     
     private let mapVM = MapVM()
     private let disposeBag = DisposeBag()
     private let locationManager = CLLocationManager()
-    private let regionRadius: CLLocationDistance = 10000
+    private let regionRadius: CLLocationDistance = 5000
     private var konselors = [Konselor]()
     private let mapViewIdentifier = "MapViewAnnotationIdentifier"
     
@@ -27,6 +28,9 @@ class MapVC: UIViewController {
         
         self.configureMapView()
         self.bindViewModel()
+        centerButton.layer.cornerRadius = centerButton.frame.width / 2
+        centerButton.layer.borderWidth = 0.5
+        centerButton.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
     }
    
     fileprivate func bindViewModel() {

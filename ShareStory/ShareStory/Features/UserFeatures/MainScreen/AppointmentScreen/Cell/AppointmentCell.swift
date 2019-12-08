@@ -12,8 +12,8 @@ import Kingfisher
 class AppointmentCell: UITableViewCell {
     
     @IBOutlet weak var konselorImageView: UIImageView!
-    @IBOutlet weak var konselorNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var konselorNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

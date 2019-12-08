@@ -65,6 +65,7 @@
 		299D126F23616F930036A626 /* Konselor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299D126E23616F930036A626 /* Konselor.storyboard */; };
 		299D1276236171760036A626 /* KonselorLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299D1275236171760036A626 /* KonselorLoginVC.swift */; };
 		299D1278236171940036A626 /* KonselorLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299D1277236171940036A626 /* KonselorLoginVM.swift */; };
+		29A03326239CACA6008B642C /* KonselorProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A03325239CACA6008B642C /* KonselorProfileVC.swift */; };
 		29A69EEC236032CF0067968B /* OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EEB236032CF0067968B /* OrderVC.swift */; };
 		29A69EEE236032E00067968B /* OrderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A69EED236032E00067968B /* OrderVM.swift */; };
 		29AB059F239367BF0085C9C7 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB059E239367BF0085C9C7 /* BookingVC.swift */; };
@@ -159,6 +160,7 @@
 		299D126E23616F930036A626 /* Konselor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Konselor.storyboard; sourceTree = "<group>"; };
 		299D1275236171760036A626 /* KonselorLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorLoginVC.swift; sourceTree = "<group>"; };
 		299D1277236171940036A626 /* KonselorLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorLoginVM.swift; sourceTree = "<group>"; };
+		29A03325239CACA6008B642C /* KonselorProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorProfileVC.swift; sourceTree = "<group>"; };
 		29A69EEB236032CF0067968B /* OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVC.swift; sourceTree = "<group>"; };
 		29A69EED236032E00067968B /* OrderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVM.swift; sourceTree = "<group>"; };
 		29AB059E239367BF0085C9C7 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		290FF2002397F526001478AE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				29A03325239CACA6008B642C /* KonselorProfileVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1180,6 +1183,7 @@
 				299D126C2361687D0036A626 /* WelcomeVC.swift in Sources */,
 				292C853723535F3A00E215A4 /* LoginGuideVC.swift in Sources */,
 				295E75D8234EE37D002612A4 /* SplashVM.swift in Sources */,
+				29A03326239CACA6008B642C /* KonselorProfileVC.swift in Sources */,
 				29794951236B02FB0064D679 /* KonselingVM.swift in Sources */,
 				29A69EEC236032CF0067968B /* OrderVC.swift in Sources */,
 				29256CC62392A046003CC0D8 /* HistoryVC.swift in Sources */,

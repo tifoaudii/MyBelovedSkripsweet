@@ -66,6 +66,8 @@ class KonselorChatVC: UIViewController {
     fileprivate func configureTableView() {
         self.chatTableView.delegate = self
         self.chatTableView.dataSource = self
+        self.chatTableView.estimatedRowHeight = 90
+        self.chatTableView.rowHeight = UITableView.automaticDimension
     }
     
     fileprivate func configureBackButton() {

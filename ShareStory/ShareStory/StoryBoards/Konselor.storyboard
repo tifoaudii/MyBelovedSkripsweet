@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -376,24 +376,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="NG9-eb-Yfk">
                                 <rect key="frame" x="32" y="538" width="311" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vG-lK-aJl">
-                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Terima">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="acceptOrderButtonDidClicked:" destination="bnU-0s-hfr" eventType="touchUpInside" id="HaP-OY-J97"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUP-Cx-6I6">
-                                        <rect key="frame" x="163.5" y="0.0" width="147.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="40"/>
                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Tolak">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="declineOrderButtonDidClicked:" destination="bnU-0s-hfr" eventType="touchUpInside" id="alS-z3-CuH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vG-lK-aJl">
+                                        <rect key="frame" x="163.5" y="0.0" width="147.5" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Terima">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="acceptOrderButtonDidClicked:" destination="bnU-0s-hfr" eventType="touchUpInside" id="HaP-OY-J97"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -443,15 +443,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="90" estimatedRowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0n3-TP-GaS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0n3-TP-GaS">
                                 <rect key="frame" x="0.0" y="56" width="375" height="482"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KonselorPatientCellIdentifier" rowHeight="80" id="dsF-wN-5D5" customClass="PatientKonselorChatCell" customModule="ShareStory" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KonselorPatientCellIdentifier" rowHeight="60" id="dsF-wN-5D5" customClass="PatientKonselorChatCell" customModule="ShareStory" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dsF-wN-5D5" id="hPz-P4-rcP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy" translatesAutoresizingMaskIntoConstraints="NO" id="XUe-3Z-Svy">
@@ -477,6 +477,9 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdI-qC-DfJ" customClass="ChatLabel" customModule="ShareStory" customModuleProvider="target">
                                                     <rect key="frame" x="73" y="33" width="31.5" height="19.5"/>
                                                     <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="zeg-RI-oek"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -485,6 +488,7 @@
                                             <constraints>
                                                 <constraint firstItem="wdI-qC-DfJ" firstAttribute="top" secondItem="0uw-HE-VFg" secondAttribute="bottom" id="4CK-k5-Od8"/>
                                                 <constraint firstItem="wdI-qC-DfJ" firstAttribute="leading" secondItem="XUe-3Z-Svy" secondAttribute="trailing" constant="12" id="9Wb-BI-AvD"/>
+                                                <constraint firstAttribute="bottom" secondItem="wdI-qC-DfJ" secondAttribute="bottom" constant="7.5" id="BI9-5n-gpX"/>
                                                 <constraint firstAttribute="trailing" secondItem="0uw-HE-VFg" secondAttribute="trailing" constant="28" id="BLO-m3-On5"/>
                                                 <constraint firstItem="0uw-HE-VFg" firstAttribute="leading" secondItem="XUe-3Z-Svy" secondAttribute="trailing" constant="12" id="OvY-E3-q4f"/>
                                                 <constraint firstItem="XUe-3Z-Svy" firstAttribute="top" secondItem="hPz-P4-rcP" secondAttribute="top" constant="8" id="RlQ-N0-84b"/>
@@ -501,22 +505,25 @@
                                             <outlet property="patientNameLabel" destination="0uw-HE-VFg" id="4uC-Cr-7H8"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KonselorSenderCellIdentifier" rowHeight="80" id="3Mb-5e-PeN" customClass="SenderKonselorChatCell" customModule="ShareStory" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KonselorSenderCellIdentifier" rowHeight="60" id="3Mb-5e-PeN" customClass="SenderKonselorChatCell" customModule="ShareStory" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Mb-5e-PeN" id="i1g-Bk-3wX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89f-81-ilp" customClass="ChatLabel" customModule="ShareStory" customModuleProvider="target">
-                                                    <rect key="frame" x="327.5" y="30.5" width="35.5" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89f-81-ilp" customClass="ChatLabel" customModule="ShareStory" customModuleProvider="target">
+                                                    <rect key="frame" x="327.5" y="12" width="35.5" height="36"/>
                                                     <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="9P5-af-Ohu"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A6N-7g-rKQ">
-                                                    <rect key="frame" x="295.5" y="30.5" width="20" height="19"/>
+                                                    <rect key="frame" x="295.5" y="20.5" width="20" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="bl7-pt-iEZ"/>
                                                         <constraint firstAttribute="height" constant="20" id="x2O-Rr-Gii"/>
@@ -524,10 +531,11 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="89f-81-ilp" secondAttribute="bottom" constant="12" id="2fl-K4-w0h"/>
+                                                <constraint firstItem="89f-81-ilp" firstAttribute="top" secondItem="i1g-Bk-3wX" secondAttribute="top" constant="12" id="Ryh-LT-DGe"/>
                                                 <constraint firstAttribute="trailing" secondItem="89f-81-ilp" secondAttribute="trailing" constant="12" id="V3a-Gf-5Fo"/>
                                                 <constraint firstItem="A6N-7g-rKQ" firstAttribute="centerY" secondItem="89f-81-ilp" secondAttribute="centerY" id="htd-0d-hQi"/>
                                                 <constraint firstItem="89f-81-ilp" firstAttribute="leading" secondItem="A6N-7g-rKQ" secondAttribute="trailing" constant="12" id="pXV-eT-dRJ"/>
-                                                <constraint firstItem="89f-81-ilp" firstAttribute="centerY" secondItem="i1g-Bk-3wX" secondAttribute="centerY" id="wYF-bU-2ot"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -629,10 +637,10 @@
             </objects>
             <point key="canvasLocation" x="1702.8985507246377" y="-387.05357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Konselor ProfileVC-->
         <scene sceneID="cw1-GC-Oj1">
             <objects>
-                <viewController id="AMS-TT-XUi" sceneMemberID="viewController">
+                <viewController id="AMS-TT-XUi" customClass="KonselorProfileVC" customModule="ShareStory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jdu-kH-515">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -710,6 +718,9 @@
                                 <state key="normal" title="Keluar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="logoutButtonDidClicked:" destination="AMS-TT-XUi" eventType="touchUpInside" id="16Q-7q-Bdz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -727,6 +738,11 @@
                         <viewLayoutGuide key="safeArea" id="RIa-aj-UvM"/>
                     </view>
                     <navigationItem key="navigationItem" id="h2z-SP-MUu"/>
+                    <connections>
+                        <outlet property="appointmentView" destination="6ze-HN-sIH" id="Nzq-50-Kfa"/>
+                        <outlet property="konselorImageProfile" destination="2Ep-Ad-Xxf" id="1IT-Bp-ZkL"/>
+                        <outlet property="konselorName" destination="Chi-VA-iTR" id="upO-Nm-YSq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iy-3H-8Pg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

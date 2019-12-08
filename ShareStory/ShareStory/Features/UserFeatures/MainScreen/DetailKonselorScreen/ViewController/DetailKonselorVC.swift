@@ -17,6 +17,8 @@ class DetailKonselorVC: UIViewController {
     @IBOutlet weak var konselorNameLabel: UILabel!
     @IBOutlet weak var konselorUniversityLabel: UILabel!
     @IBOutlet weak var konselorAddressLabel: UILabel!
+    @IBOutlet weak var appointmentButton: UIButton!
+    @IBOutlet weak var konselingButton: UIButton!
     
     private var konselor: Konselor?
     private let orderVm = OrderVM()
@@ -55,6 +57,13 @@ class DetailKonselorVC: UIViewController {
         self.konselorAddressLabel.text = konselor?.address
         self.konselorImage.kf.setImage(with: URL(string: konselor?.photoUrl ?? ""))
         self.konselorImage.layer.cornerRadius = self.konselorImage.frame.width / 2
+        
+        self.appointmentButton.layer.cornerRadius = 10
+        self.konselingButton.layer.cornerRadius = 10
+        self.appointmentButton.layer.borderWidth = 0.5
+        self.konselingButton.layer.borderWidth = 0.5
+        self.konselingButton.layer.borderColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        self.appointmentButton.layer.borderColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
     }
     
     @IBAction func startKonseling(_ sender: Any) {

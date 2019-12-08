@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import IQKeyboardManagerSwift
 
 class ChatVC: UIViewController {
 
@@ -74,6 +75,8 @@ class ChatVC: UIViewController {
     fileprivate func configureTableView() {
         self.chatTableView.delegate = self
         self.chatTableView.dataSource = self
+        self.chatTableView.estimatedRowHeight = 90
+        self.chatTableView.rowHeight = UITableView.automaticDimension
     }
 
     @IBAction func sendMessageButtonDidClicked(_ sender: Any) {
@@ -82,6 +85,7 @@ class ChatVC: UIViewController {
         }
         
         self.chatVM.sendMessage(content: message, chatRoom: chatRoom)
+        self.view.endEditing(true)
     }
     
     @IBAction func endKonselingButtonDidClicked(_ sender: Any) {

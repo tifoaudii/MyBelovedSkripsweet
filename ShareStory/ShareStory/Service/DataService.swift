@@ -31,6 +31,7 @@ class DataService {
   
   //MARK:- Global State
   var userLocation: CLLocation?
+  private let locationManager = CLLocationManager()
   var geoCoder = CLGeocoder()
   
   //MARK:- DB Ref
@@ -166,11 +167,11 @@ class DataService {
   }
   
   func calculateDistance(konselor latitude: Double, konselor longitude: Double) -> Double {
-    guard let userCoordinate = self.userLocation else {
-      return 0
+    guard let userLocation = locationManager.location else {
+        return 0
     }
     let konselorCoordinate = CLLocation(latitude: latitude, longitude: longitude)
-    let distanceInKm: Double = userCoordinate.distance(from: konselorCoordinate) / 1000
+    let distanceInKm: Double = userLocation.distance(from: konselorCoordinate) / 1000
     return round(100 * distanceInKm)/100
   }
   
@@ -281,7 +282,7 @@ class DataService {
   
   func updateUserProfile(name: String, birthday: String, gender: Gender, completion: @escaping (_ success: Bool)-> (), failure: @escaping ()->()) {
     
-    guard let uid = self.userId else {
+    guard let uid = Auth.auth().currentUser?.uid else {
       failure()
       return
     }
@@ -597,8 +598,7 @@ class DataService {
         }
       }
       
-      historyArray = historyArray.sorted(by: { $0.date.compare($1.date) == .orderedDescending })
-      completion(historyArray)
+      completion(historyArray.reversed())
     }
   }
   
@@ -636,7 +636,7 @@ class DataService {
         }
       }
       
-      completion(appointmentArray)
+      completion(appointmentArray.reversed())
     }
   }
 }

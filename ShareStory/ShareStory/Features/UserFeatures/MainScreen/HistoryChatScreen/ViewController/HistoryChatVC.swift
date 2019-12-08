@@ -55,6 +55,8 @@ class HistoryChatVC: UIViewController {
         self.historyChatTableView.delegate = self
         self.historyChatTableView.dataSource = self
         self.historyChatTableView.tableFooterView = UIView()
+        self.historyChatTableView.estimatedRowHeight = 90
+        self.historyChatTableView.rowHeight = UITableView.automaticDimension
     }
 
 }

@@ -74,7 +74,7 @@ class ProfileVC: UIViewController {
         self.profileVM.isLogoutSuccess
             .drive(onNext: { [unowned self] isLogoutSuccess in
                 if isLogoutSuccess {
-                    self.navigataToMainScreen()
+                    self.navigateToWelcomeScreen()
                 }
             }).disposed(by: disposeBag)
     }
@@ -107,6 +107,12 @@ class ProfileVC: UIViewController {
 }
 
 extension ProfileVC: UpdateProfileDelegate {
+    
+    func navigateToWelcomeScreen() {
+        let welcomeVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "WelcomeVC") as WelcomeVC
+        welcomeVC.modalPresentationStyle = .fullScreen
+        self.present(welcomeVC, animated: true, completion: nil)
+    }
     
     @objc func navigateToHistoryView() {
         let historyVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "HistoryVC") as HistoryVC
