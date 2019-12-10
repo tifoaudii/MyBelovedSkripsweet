@@ -74,6 +74,10 @@
 		29AB05AB2393D9E00085C9C7 /* AppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05AA2393D9E00085C9C7 /* AppointmentVC.swift */; };
 		29AB05B02393DA620085C9C7 /* ListAppointmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05AF2393DA620085C9C7 /* ListAppointmentVM.swift */; };
 		29AB05B32393DC190085C9C7 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB05B22393DC190085C9C7 /* AppointmentCell.swift */; };
+		29B542F4239F4EE1000CDA6E /* KonselorAppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B542F3239F4EE1000CDA6E /* KonselorAppointmentVC.swift */; };
+		29B542F6239F4EEF000CDA6E /* KonselorAppointmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B542F5239F4EEF000CDA6E /* KonselorAppointmentVM.swift */; };
+		29B542F9239F4F1F000CDA6E /* KonselorAppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B542F8239F4F1F000CDA6E /* KonselorAppointmentCell.swift */; };
+		29B542FB239F5034000CDA6E /* AppointmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B542FA239F5034000CDA6E /* AppointmentVM.swift */; };
 		29BC5122236DEBB7000774F5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BC5121236DEBB7000774F5 /* Message.swift */; };
 		29BE9DEF238772F100E24485 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DEE238772F100E24485 /* ChatVC.swift */; };
 		29BE9DF12387730000E24485 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF02387730000E24485 /* ChatVM.swift */; };
@@ -169,6 +173,10 @@
 		29AB05AA2393D9E00085C9C7 /* AppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentVC.swift; sourceTree = "<group>"; };
 		29AB05AF2393DA620085C9C7 /* ListAppointmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAppointmentVM.swift; sourceTree = "<group>"; };
 		29AB05B22393DC190085C9C7 /* AppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
+		29B542F3239F4EE1000CDA6E /* KonselorAppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorAppointmentVC.swift; sourceTree = "<group>"; };
+		29B542F5239F4EEF000CDA6E /* KonselorAppointmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorAppointmentVM.swift; sourceTree = "<group>"; };
+		29B542F8239F4F1F000CDA6E /* KonselorAppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorAppointmentCell.swift; sourceTree = "<group>"; };
+		29B542FA239F5034000CDA6E /* AppointmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentVM.swift; sourceTree = "<group>"; };
 		29BC5121236DEBB7000774F5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		29BE9DEE238772F100E24485 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		29BE9DF02387730000E24485 /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
@@ -700,6 +708,7 @@
 		299D127123616FB90036A626 /* KonselorFeatures */ = {
 			isa = PBXGroup;
 			children = (
+				29B542F0239F4EB6000CDA6E /* AppointmentScreen */,
 				290FF1FF2397F51B001478AE /* ProfileScreen */,
 				29794952236B16E50064D679 /* ChatScreen */,
 				295E65D4236A82C80042FEE8 /* ListKonseling */,
@@ -823,6 +832,41 @@
 			isa = PBXGroup;
 			children = (
 				29AB05B22393DC190085C9C7 /* AppointmentCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		29B542F0239F4EB6000CDA6E /* AppointmentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				29B542F7239F4F0C000CDA6E /* Cell */,
+				29B542F2239F4ECF000CDA6E /* ViewModel */,
+				29B542F1239F4EC7000CDA6E /* ViewController */,
+			);
+			path = AppointmentScreen;
+			sourceTree = "<group>";
+		};
+		29B542F1239F4EC7000CDA6E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29B542F3239F4EE1000CDA6E /* KonselorAppointmentVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		29B542F2239F4ECF000CDA6E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29B542F5239F4EEF000CDA6E /* KonselorAppointmentVM.swift */,
+				29B542FA239F5034000CDA6E /* AppointmentVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29B542F7239F4F0C000CDA6E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				29B542F8239F4F1F000CDA6E /* KonselorAppointmentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1147,7 +1191,10 @@
 				295D260723924DA600197ECE /* RatingVM.swift in Sources */,
 				29AB05B02393DA620085C9C7 /* ListAppointmentVM.swift in Sources */,
 				29256CC82392A04F003CC0D8 /* HistoryVM.swift in Sources */,
+				29B542F6239F4EEF000CDA6E /* KonselorAppointmentVM.swift in Sources */,
+				29B542FB239F5034000CDA6E /* AppointmentVM.swift in Sources */,
 				293A27292351925A0063D107 /* MapVM.swift in Sources */,
+				29B542F9239F4F1F000CDA6E /* KonselorAppointmentCell.swift in Sources */,
 				296F45C8235222DF009477FA /* DetailKonselorVC.swift in Sources */,
 				29BE9DF723877A2C00E24485 /* KonselorMessageVM.swift in Sources */,
 				29256CCD2392ADDB003CC0D8 /* ListHistoryVM.swift in Sources */,
@@ -1162,6 +1209,7 @@
 				2935030323645F5D00F0C571 /* RequestOrderVM.swift in Sources */,
 				29BC5122236DEBB7000774F5 /* Message.swift in Sources */,
 				295E65DA236A834F0042FEE8 /* ListKonselingVM.swift in Sources */,
+				29B542F4239F4EE1000CDA6E /* KonselorAppointmentVC.swift in Sources */,
 				295E75DF234EEC56002612A4 /* LoginVM.swift in Sources */,
 				29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */,
 				29256CD02392B399003CC0D8 /* HistoryChatVC.swift in Sources */,

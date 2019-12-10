@@ -14,6 +14,15 @@ class ListKonselingVC: UIViewController {
 
     @IBOutlet weak var listKonselingTableView: UITableView!
     
+    let emptyLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Tidak ada sesi konseling saat ini"
+        label.font = UIFont.init(name: "AvenirNext-DemiBold", size: 18)
+        label.textAlignment = .center
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
+    
     private let listKonselingVM = ListKonselingVM()
     private let disposeBag = DisposeBag()
     private var acceptedOrders = [AcceptedOrder]()
@@ -32,6 +41,7 @@ class ListKonselingVC: UIViewController {
         self.listKonselingVM.acceptedOrder
             .drive(onNext: { [unowned self] acceptedOrders in
                 self.acceptedOrders = acceptedOrders
+                self.configureEmptyLabel()
                 self.listKonselingTableView.reloadData()
             }).disposed(by: disposeBag)
         
@@ -46,6 +56,17 @@ class ListKonselingVC: UIViewController {
     fileprivate func configureTableView() {
         self.listKonselingTableView.delegate = self
         self.listKonselingTableView.dataSource = self
+        self.listKonselingTableView.tableFooterView = UIView()
+    }
+    
+    fileprivate func configureEmptyLabel() {
+        if acceptedOrders.isEmpty {
+            self.view.addSubview(emptyLabel)
+            emptyLabel.anchor(top: nil, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 0)
+            emptyLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        } else {
+            self.emptyLabel.removeFromSuperview()
+        }
     }
 }
 

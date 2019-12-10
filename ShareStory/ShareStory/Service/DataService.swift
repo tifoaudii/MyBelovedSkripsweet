@@ -168,7 +168,7 @@ class DataService {
   
   func calculateDistance(konselor latitude: Double, konselor longitude: Double) -> Double {
     guard let userLocation = locationManager.location else {
-        return 0
+      return 0
     }
     let konselorCoordinate = CLLocation(latitude: latitude, longitude: longitude)
     let distanceInKm: Double = userLocation.distance(from: konselorCoordinate) / 1000
@@ -609,7 +609,8 @@ class DataService {
       "photoUrl": konselor.photoUrl,
       "date": time,
       "patientId": uid,
-      "konselorName": konselor.name
+      "konselorName": konselor.name,
+      "konselorId": konselor.id
     ]
     
     REF_APPOINTMENT.childByAutoId().updateChildValues(newAppointment)
@@ -639,4 +640,62 @@ class DataService {
       completion(appointmentArray.reversed())
     }
   }
+  
+  func fetchKonselorAppointments(completion: @escaping (_ appointment: [AppointmentVM])->(), failure: @escaping ()->()) {
+    REF_APPOINTMENT.observeSingleEvent(of: .value) { (dataSnapshot) in
+      var appointmentDict = Dictionary<String,Appointment>()
+      
+      guard let appointmentSnapshot = dataSnapshot.children.allObjects as? [DataSnapshot], let uid = Auth.auth().currentUser?.uid else {
+        return failure()
+      }
+      
+      for appointment in appointmentSnapshot {
+        let patientId = appointment.childSnapshot(forPath: "patientId").value as! String
+        let konselorId = appointment.childSnapshot(forPath: "konselorId").value as! String
+        
+        if uid == konselorId {
+          let photoUrl = appointment.childSnapshot(forPath: "photoUrl").value as! String
+          let konselorName = appointment.childSnapshot(forPath: "konselorName").value as! String
+          let dateString = appointment.childSnapshot(forPath: "date").value as! String
+          let newAppointment = Appointment(konselorPhotoUrl: photoUrl, konselorName: konselorName, date: dateString)
+          
+          appointmentDict["\(patientId)"] = newAppointment
+        }
+      }
+      
+      self.decodeDataIntoAppointmentViewModel(appointment: appointmentDict) { (appointmentVM) in
+        completion(appointmentVM)
+      }
+    }
+  }
+  
+  func decodeDataIntoAppointmentViewModel(appointment: Dictionary<String, Appointment>, completion : @escaping (_ appointment: [AppointmentVM]) -> ()) {
+    
+    
+    REF_USER.observeSingleEvent(of: .value) { (userSnapshot) in
+      
+      var appointmentVM = [AppointmentVM]()
+      
+      guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else {
+        return
+      }
+      
+      for user in userSnapshot {
+        if appointment.keys.contains(user.key) {
+          
+          let name = user.childSnapshot(forPath: "name").value as! String
+          let birthday = user.childSnapshot(forPath: "birthday").value as! String
+          let email = user.childSnapshot(forPath: "email").value as! String
+          let gender = user.childSnapshot(forPath: "gender").value as! String
+          
+          let patient = User(name: name, birthDay: birthday, email: email, gender: Gender(rawValue: gender)!, password: "")
+          let newAppointment = AppointmentVM(appointment: appointment[user.key]!, patient: patient)
+          appointmentVM.append(newAppointment)
+        }
+      }
+      completion(appointmentVM)
+    }
+    
+  }
+  
 }

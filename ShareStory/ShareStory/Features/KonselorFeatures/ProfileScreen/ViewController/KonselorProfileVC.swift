@@ -17,6 +17,9 @@ class KonselorProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+        appointmentView.addGestureRecognizer(tapGesture)
 
         DataService.shared.getKonselorProfile(uid: DataService.shared.konselorUid, completion: { [unowned self] (konselor) in
             self.konselorImageProfile.kf.setImage(with: URL(string: konselor.photoUrl))
@@ -25,6 +28,11 @@ class KonselorProfileVC: UIViewController {
         }) { [unowned self] in
             self.showErrorMessage()
         }
+    }
+    
+    @objc func handleTap() {
+        let appointmentVC = UIStoryboard.init(name: "Konselor", bundle: nil).instantiateViewController(identifier: "KonselorAppointmentVC")
+        self.navigationController?.pushViewController(appointmentVC, animated: true)
     }
     
     @IBAction func logoutButtonDidClicked(_ sender: Any) {

@@ -14,6 +14,16 @@ class OrderKonselingVC: UIViewController {
 
     @IBOutlet weak var konselingTableView: UITableView!
     
+    let emptyLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Tidak ada permintaan konseling saat ini"
+        label.font = UIFont.init(name: "AvenirNext-DemiBold", size: 18)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
+    
     private let konselingVM = OrderKonselingVM()
     private let disposeBag = DisposeBag()
     private var orders = [RequestOrder]()
@@ -32,6 +42,7 @@ class OrderKonselingVC: UIViewController {
         self.konselingVM.requestOrders
             .drive(onNext: { [unowned self] orders in
                 self.orders = orders
+                self.configureEmptyLabel()
                 self.konselingTableView.reloadData()
             }).disposed(by: disposeBag)
         
@@ -46,6 +57,16 @@ class OrderKonselingVC: UIViewController {
     fileprivate func configureTableView() {
         self.konselingTableView.delegate = self
         self.konselingTableView.dataSource = self
+    }
+    
+    fileprivate func configureEmptyLabel() {
+        if orders.isEmpty {
+            self.view.addSubview(emptyLabel)
+            emptyLabel.anchor(top: nil, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 0)
+            emptyLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        } else {
+            self.emptyLabel.removeFromSuperview()
+        }
     }
 }
 

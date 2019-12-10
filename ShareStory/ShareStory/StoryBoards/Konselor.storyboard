@@ -38,7 +38,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Ffx-0j-wxv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Masukkan password anda" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="alW-Zs-2Vl">
                                         <rect key="frame" x="0.0" y="299.5" width="311" height="40"/>
@@ -112,7 +112,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="109" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yzM-2N-K64">
                                 <rect key="frame" x="0.0" y="56" width="375" height="542"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="konseling_cell" rowHeight="109" id="nyV-u4-8R5" customClass="KonselingCell" customModule="ShareStory" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="109"/>
@@ -134,19 +134,19 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-vP-V3v">
                                                             <rect key="frame" x="82" y="17.5" width="257" height="52.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tifo Audi Alif Putra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlT-1p-Evr">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tifo Audi Alif Putra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlT-1p-Evr">
                                                                     <rect key="frame" x="0.0" y="0.0" width="257" height="19.5"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="21 Tahun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6t-Dl-CvC">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 Tahun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6t-Dl-CvC">
                                                                     <rect key="frame" x="0.0" y="20.5" width="257" height="15.5"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="11"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Laki-laki" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4M-wd-QvH">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laki-laki" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4M-wd-QvH">
                                                                     <rect key="frame" x="0.0" y="37" width="257" height="15.5"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="11"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -221,7 +221,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CNW-Sw-7X8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CNW-Sw-7X8">
                                 <rect key="frame" x="0.0" y="56" width="375" height="542"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -637,7 +637,7 @@
             </objects>
             <point key="canvasLocation" x="1702.8985507246377" y="-387.05357142857139"/>
         </scene>
-        <!--Konselor ProfileVC-->
+        <!--Profile Saya-->
         <scene sceneID="cw1-GC-Oj1">
             <objects>
                 <viewController id="AMS-TT-XUi" customClass="KonselorProfileVC" customModule="ShareStory" customModuleProvider="target" sceneMemberID="viewController">
@@ -648,7 +648,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9c-4B-z98">
                                 <rect key="frame" x="20" y="76" width="335" height="250"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-Ad-Xxf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-Ad-Xxf">
                                         <rect key="frame" x="97.5" y="22.5" width="140" height="139"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="140" id="Idn-Dy-Lgj"/>
@@ -737,16 +737,104 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RIa-aj-UvM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="h2z-SP-MUu"/>
+                    <navigationItem key="navigationItem" title="Profile Saya" id="h2z-SP-MUu"/>
                     <connections>
                         <outlet property="appointmentView" destination="6ze-HN-sIH" id="Nzq-50-Kfa"/>
                         <outlet property="konselorImageProfile" destination="2Ep-Ad-Xxf" id="1IT-Bp-ZkL"/>
                         <outlet property="konselorName" destination="Chi-VA-iTR" id="upO-Nm-YSq"/>
+                        <segue destination="5kT-7u-UV7" kind="show" identifier="appointment_segue" id="NAf-ud-0Ok"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iy-3H-8Pg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4613.04347826087" y="464.73214285714283"/>
+        </scene>
+        <!--Appointment Saya-->
+        <scene sceneID="SHK-sw-WhP">
+            <objects>
+                <viewController storyboardIdentifier="KonselorAppointmentVC" id="5kT-7u-UV7" customClass="KonselorAppointmentVC" customModule="ShareStory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eke-Yr-cQL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qUQ-OU-tfj">
+                                <rect key="frame" x="0.0" y="56" width="375" height="542"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="konselorAppointmentCell" rowHeight="70" id="gUH-jM-hXj" customClass="KonselorAppointmentCell" customModule="ShareStory" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gUH-jM-hXj" id="HS0-7y-dGD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy" translatesAutoresizingMaskIntoConstraints="NO" id="o4o-ef-0lF">
+                                                    <rect key="frame" x="15" y="11" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="ec2-L5-e99"/>
+                                                        <constraint firstAttribute="width" constant="48" id="qbx-Gp-m4C"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tifo Audi Alif Putra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TrF-Uf-gSp">
+                                                    <rect key="frame" x="75" y="11" width="288" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yP-g2-kwN">
+                                                    <rect key="frame" x="75" y="47" width="288" height="16"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laki - laki" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xq0-hu-GK2">
+                                                    <rect key="frame" x="75" y="31" width="288" height="16"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0yP-g2-kwN" firstAttribute="top" secondItem="xq0-hu-GK2" secondAttribute="bottom" id="63A-UH-PdK"/>
+                                                <constraint firstItem="xq0-hu-GK2" firstAttribute="top" secondItem="TrF-Uf-gSp" secondAttribute="bottom" id="A1m-gz-98K"/>
+                                                <constraint firstItem="xq0-hu-GK2" firstAttribute="leading" secondItem="TrF-Uf-gSp" secondAttribute="leading" id="LBt-re-3He"/>
+                                                <constraint firstItem="o4o-ef-0lF" firstAttribute="leading" secondItem="HS0-7y-dGD" secondAttribute="leading" constant="15" id="Rkv-OD-tT1"/>
+                                                <constraint firstItem="TrF-Uf-gSp" firstAttribute="top" secondItem="o4o-ef-0lF" secondAttribute="top" id="U5A-dU-uYs"/>
+                                                <constraint firstItem="TrF-Uf-gSp" firstAttribute="leading" secondItem="o4o-ef-0lF" secondAttribute="trailing" constant="12" id="Y2u-0s-W3T"/>
+                                                <constraint firstAttribute="trailing" secondItem="TrF-Uf-gSp" secondAttribute="trailing" constant="12" id="Ydx-fj-Sgy"/>
+                                                <constraint firstItem="xq0-hu-GK2" firstAttribute="trailing" secondItem="TrF-Uf-gSp" secondAttribute="trailing" id="Zav-Ih-r0V"/>
+                                                <constraint firstItem="0yP-g2-kwN" firstAttribute="trailing" secondItem="xq0-hu-GK2" secondAttribute="trailing" id="i70-jM-JNN"/>
+                                                <constraint firstItem="o4o-ef-0lF" firstAttribute="centerY" secondItem="HS0-7y-dGD" secondAttribute="centerY" id="vnj-gc-gOs"/>
+                                                <constraint firstItem="0yP-g2-kwN" firstAttribute="leading" secondItem="xq0-hu-GK2" secondAttribute="leading" id="xwz-pr-0kR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="appointmentImage" destination="o4o-ef-0lF" id="tYh-aI-IUz"/>
+                                            <outlet property="date" destination="0yP-g2-kwN" id="MF7-bD-yLC"/>
+                                            <outlet property="gender" destination="xq0-hu-GK2" id="Peg-TC-LSz"/>
+                                            <outlet property="patientName" destination="TrF-Uf-gSp" id="xoo-Ue-jdi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qUQ-OU-tfj" firstAttribute="top" secondItem="UjR-5U-Z2N" secondAttribute="top" id="5Ax-UK-5KQ"/>
+                            <constraint firstItem="qUQ-OU-tfj" firstAttribute="leading" secondItem="UjR-5U-Z2N" secondAttribute="leading" id="fte-Pf-dIr"/>
+                            <constraint firstItem="qUQ-OU-tfj" firstAttribute="bottom" secondItem="UjR-5U-Z2N" secondAttribute="bottom" id="ixQ-8K-A23"/>
+                            <constraint firstItem="qUQ-OU-tfj" firstAttribute="trailing" secondItem="UjR-5U-Z2N" secondAttribute="trailing" id="zzg-78-KtO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UjR-5U-Z2N"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Appointment Saya" id="TaD-dz-gVU"/>
+                    <connections>
+                        <outlet property="appointmentTableView" destination="qUQ-OU-tfj" id="KBS-ue-c1P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xih-lw-m8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5536.8000000000002" y="467.3163418290855"/>
         </scene>
         <!--Profile-->
         <scene sceneID="kXy-ZA-zoZ">
