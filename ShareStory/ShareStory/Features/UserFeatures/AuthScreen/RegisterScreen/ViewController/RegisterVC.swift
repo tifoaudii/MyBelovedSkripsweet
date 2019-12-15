@@ -39,8 +39,7 @@ class RegisterVC: UIViewController {
     fileprivate func bindViewModel() {
         self.registerVM.registerFailed.drive(onNext: { [unowned self] error in
             if error {
-                let alertController = UIAlertController(title: "Upps", message: "Error gan", preferredStyle: .alert)
-                self.present(alertController, animated: true, completion: nil)
+                self.onRegisterFailed()
             }
         }).disposed(by: disposeBag)
         

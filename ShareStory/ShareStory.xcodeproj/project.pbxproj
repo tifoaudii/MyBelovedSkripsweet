@@ -30,6 +30,7 @@
 		295D260523924D9900197ECE /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D260423924D9900197ECE /* RatingVC.swift */; };
 		295D260723924DA600197ECE /* RatingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D260623924DA600197ECE /* RatingVM.swift */; };
 		295D260A2392526700197ECE /* RatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D26092392526700197ECE /* RatingStackView.swift */; };
+		295E432623A12F6300983103 /* HistoryPatientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E432523A12F6300983103 /* HistoryPatientVC.swift */; };
 		295E65D8236A83440042FEE8 /* ListKonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E65D7236A83440042FEE8 /* ListKonselingVC.swift */; };
 		295E65DA236A834F0042FEE8 /* ListKonselingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E65D9236A834F0042FEE8 /* ListKonselingVM.swift */; };
 		295E65DD236A83DA0042FEE8 /* ListKonselingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E65DC236A83DA0042FEE8 /* ListKonselingCell.swift */; };
@@ -41,6 +42,7 @@
 		295E75E9234F05A2002612A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E75E8234F05A2002612A4 /* User.swift */; };
 		295E75EC234F0C69002612A4 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E75EB234F0C69002612A4 /* DataService.swift */; };
 		295E75F0234F0DA0002612A4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E75EF234F0DA0002612A4 /* Config.swift */; };
+		29604F8423A51C6600829F76 /* HistoryPatientChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29604F8323A51C6600829F76 /* HistoryPatientChatVC.swift */; };
 		296A550A2363F9DD00785EE9 /* OrderKonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296A55092363F9DD00785EE9 /* OrderKonselingVC.swift */; };
 		296A550C2363F9EA00785EE9 /* OrderKonselingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296A550B2363F9EA00785EE9 /* OrderKonselingVM.swift */; };
 		296A550F2363FA0900785EE9 /* KonselingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296A550E2363FA0900785EE9 /* KonselingCell.swift */; };
@@ -84,6 +86,7 @@
 		29BE9DF32387792500E24485 /* ChatPatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF22387792500E24485 /* ChatPatientCell.swift */; };
 		29BE9DF52387793300E24485 /* ChatKonselorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF42387793300E24485 /* ChatKonselorCell.swift */; };
 		29BE9DF723877A2C00E24485 /* KonselorMessageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE9DF623877A2C00E24485 /* KonselorMessageVM.swift */; };
+		29D7640D23A48A6E00759790 /* KonselorHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7640C23A48A6E00759790 /* KonselorHistoryCell.swift */; };
 		29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */; };
 		29FF4A2E234D53800043AE81 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FF4A2D234D53800043AE81 /* SplashVC.swift */; };
 		95A3DEEB7FCE22698A515263 /* Pods_ShareStoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D0BA16B2E3B842E1FF3292 /* Pods_ShareStoryTests.framework */; };
@@ -125,6 +128,7 @@
 		295D260423924D9900197ECE /* RatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
 		295D260623924DA600197ECE /* RatingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingVM.swift; sourceTree = "<group>"; };
 		295D26092392526700197ECE /* RatingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStackView.swift; sourceTree = "<group>"; };
+		295E432523A12F6300983103 /* HistoryPatientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPatientVC.swift; sourceTree = "<group>"; };
 		295E65D7236A83440042FEE8 /* ListKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselingVC.swift; sourceTree = "<group>"; };
 		295E65D9236A834F0042FEE8 /* ListKonselingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselingVM.swift; sourceTree = "<group>"; };
 		295E65DC236A83DA0042FEE8 /* ListKonselingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonselingCell.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 		295E75E8234F05A2002612A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		295E75EB234F0C69002612A4 /* DataService.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; tabWidth = 2; };
 		295E75EF234F0DA0002612A4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		29604F8323A51C6600829F76 /* HistoryPatientChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPatientChatVC.swift; sourceTree = "<group>"; };
 		296A55092363F9DD00785EE9 /* OrderKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderKonselingVC.swift; sourceTree = "<group>"; };
 		296A550B2363F9EA00785EE9 /* OrderKonselingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderKonselingVM.swift; sourceTree = "<group>"; };
 		296A550E2363FA0900785EE9 /* KonselingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselingCell.swift; sourceTree = "<group>"; };
@@ -183,6 +188,7 @@
 		29BE9DF22387792500E24485 /* ChatPatientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPatientCell.swift; sourceTree = "<group>"; };
 		29BE9DF42387793300E24485 /* ChatKonselorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatKonselorCell.swift; sourceTree = "<group>"; };
 		29BE9DF623877A2C00E24485 /* KonselorMessageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorMessageVM.swift; sourceTree = "<group>"; };
+		29D7640C23A48A6E00759790 /* KonselorHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonselorHistoryCell.swift; sourceTree = "<group>"; };
 		29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrderKonselingVC.swift; sourceTree = "<group>"; };
 		29FF4A2D234D53800043AE81 /* SplashVC.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; tabWidth = 3; };
 		3718A352D644BF34BA561DC5 /* Pods-ShareStory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareStory.release.xcconfig"; path = "Target Support Files/Pods-ShareStory/Pods-ShareStory.release.xcconfig"; sourceTree = "<group>"; };
@@ -533,6 +539,8 @@
 			children = (
 				296A55092363F9DD00785EE9 /* OrderKonselingVC.swift */,
 				29D81F6823654FB500B75A99 /* DetailOrderKonselingVC.swift */,
+				295E432523A12F6300983103 /* HistoryPatientVC.swift */,
+				29604F8323A51C6600829F76 /* HistoryPatientChatVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -550,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				296A550E2363FA0900785EE9 /* KonselingCell.swift */,
+				29D7640C23A48A6E00759790 /* KonselorHistoryCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1210,12 +1219,14 @@
 				29BC5122236DEBB7000774F5 /* Message.swift in Sources */,
 				295E65DA236A834F0042FEE8 /* ListKonselingVM.swift in Sources */,
 				29B542F4239F4EE1000CDA6E /* KonselorAppointmentVC.swift in Sources */,
+				29604F8423A51C6600829F76 /* HistoryPatientChatVC.swift in Sources */,
 				295E75DF234EEC56002612A4 /* LoginVM.swift in Sources */,
 				29D81F6923654FB500B75A99 /* DetailOrderKonselingVC.swift in Sources */,
 				29256CD02392B399003CC0D8 /* HistoryChatVC.swift in Sources */,
 				29BE9DF12387730000E24485 /* ChatVM.swift in Sources */,
 				293F81EF236DD100001F5436 /* ChatLabel.swift in Sources */,
 				29AB05AB2393D9E00085C9C7 /* AppointmentVC.swift in Sources */,
+				295E432623A12F6300983103 /* HistoryPatientVC.swift in Sources */,
 				2979495A236B21F80064D679 /* ChatRoom.swift in Sources */,
 				29757F7A2360732F00799CDD /* Order.swift in Sources */,
 				290708F62354511200A0DEE9 /* ProfileVM.swift in Sources */,
@@ -1241,6 +1252,7 @@
 				29FF4A2E234D53800043AE81 /* SplashVC.swift in Sources */,
 				298C76D32352D751001DB2C7 /* ListKonselorCell.swift in Sources */,
 				290708F42354510700A0DEE9 /* ProfileVC.swift in Sources */,
+				29D7640D23A48A6E00759790 /* KonselorHistoryCell.swift in Sources */,
 				295D260523924D9900197ECE /* RatingVC.swift in Sources */,
 				2941423D235831440030E227 /* EditProfileVC.swift in Sources */,
 				295E75E3234EEC72002612A4 /* RegisterVC.swift in Sources */,

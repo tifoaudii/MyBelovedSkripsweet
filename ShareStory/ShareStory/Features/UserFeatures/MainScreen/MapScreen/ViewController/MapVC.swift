@@ -10,11 +10,13 @@ import UIKit
 import MapKit
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 
 class MapVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var centerButton: UIButton!
+    @IBOutlet weak var dismissButton: UIButton!
     
     private let mapVM = MapVM()
     private let disposeBag = DisposeBag()
@@ -31,6 +33,11 @@ class MapVC: UIViewController {
         centerButton.layer.cornerRadius = centerButton.frame.width / 2
         centerButton.layer.borderWidth = 0.5
         centerButton.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        
+        if Auth.auth().currentUser != nil {
+            self.dismissButton.isHidden = true
+        }
+            
     }
    
     fileprivate func bindViewModel() {
@@ -72,6 +79,9 @@ class MapVC: UIViewController {
     }
     @IBAction func personButtonDidClicked(_ sender: Any) {
         
+    }
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func centeredUserLocation(_ sender: Any) {

@@ -54,6 +54,9 @@ class KonselorLoginVC: UIViewController {
                 }
             }).disposed(by: disposeBag)
     }
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func loginButtonDidCliked(_ sender: Any) {
         guard let email = emailTextField.text, !emailTextField.text!.isEmpty else {

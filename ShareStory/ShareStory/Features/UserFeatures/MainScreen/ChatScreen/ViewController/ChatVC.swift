@@ -16,6 +16,7 @@ class ChatVC: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var sendMessageButton: UIButton!
+    @IBOutlet weak var messageContainer: UIView!
     
     private var chatRoom: ChatRoom?
     private var messages = [Message]()

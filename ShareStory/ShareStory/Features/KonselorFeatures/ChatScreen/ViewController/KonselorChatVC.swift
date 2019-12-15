@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import IQKeyboardManagerSwift
 
 class KonselorChatVC: UIViewController {
     
@@ -29,6 +30,7 @@ class KonselorChatVC: UIViewController {
         self.fetchAllMessages()
         self.bindViewModel()
     }
+    
     
     fileprivate func fetchAllMessages() {
         guard let chatRoom = chatRoom else {
@@ -58,7 +60,7 @@ class KonselorChatVC: UIViewController {
         self.chatVM.isKonselingOver
             .drive(onNext: { [unowned self] isKonselingOver in
                 if isKonselingOver {
-                    self.navigationController?.popViewController(animated: true)
+                    self.onKonselingFinish()
                 }
             }).disposed(by: disposeBag)
     }
@@ -79,7 +81,7 @@ class KonselorChatVC: UIViewController {
     }
     
     @IBAction func sendMessageButtonDidClicked(_ sender: Any) {
-        guard let message = messageTextField.text, let chatRoom = chatRoom else {
+        guard let message = messageTextField.text, !messageTextField.text!.isEmpty, let chatRoom = chatRoom else {
             return
         }
         
@@ -111,6 +113,14 @@ extension KonselorChatVC: UITableViewDelegate, UITableViewDataSource {
             cell.setupCell(message: message.content)
             return cell
         }
+    }
+    
+    func onKonselingFinish() {
+        let alertController = UIAlertController(title: "Pasien Mengakhiri Konseling", message: "Kembali ke Beranda", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Mengerti", style: .default, handler: { [unowned self] _ in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     open func loadChatRoom(chatRoom: ChatRoom) {

@@ -602,6 +602,39 @@ class DataService {
     }
   }
   
+  func getHistoryKonseling(patient: String, completion: @escaping (_ history: [History])->(), failure: @escaping ()->()) {
+    REF_HISTORY.observeSingleEvent(of: .value) { (historySnapshot) in
+      
+      var historyArray = [History]()
+      
+      guard let historyOrders = historySnapshot.children.allObjects as? [DataSnapshot], let uid = Auth.auth().currentUser?.uid else {
+        return failure()
+      }
+      
+      for history in historyOrders {
+        let patientId = history.childSnapshot(forPath: "patientId").value as! String
+        let konselorId = history.childSnapshot(forPath: "konselorId").value as! String
+        
+        if konselorId == uid && patientId == patient {
+          let photoUrl = history.childSnapshot(forPath: "photoUrl").value as! String
+          let konselorName = history.childSnapshot(forPath: "konselorName").value as! String
+          let dateString = history.childSnapshot(forPath: "date").value as! String
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "dd-MM-yyyy"
+          let date = dateFormatter.date(from: dateString)
+          let chatRoomId = history.childSnapshot(forPath: "chatRoomId").value as! String
+          let konselorId = history.childSnapshot(forPath: "konselorId").value as! String
+          let historyOrder = History(konselorPhotoUrl: photoUrl, chatRoomId: chatRoomId, konselorName: konselorName, konselorId: konselorId, date: date!)
+          historyArray.append(historyOrder)
+        }
+      }
+      
+      completion(historyArray.reversed())
+    }
+  }
+  
+  
+  
   func createAppointment(time: String, konselor: Konselor, completion: @escaping(_ success: Bool)->()) {
     guard let uid = Auth.auth().currentUser?.uid else { return }
     

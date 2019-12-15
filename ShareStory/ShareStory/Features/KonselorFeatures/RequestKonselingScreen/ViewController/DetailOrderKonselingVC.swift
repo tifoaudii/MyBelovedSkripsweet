@@ -16,6 +16,7 @@ class DetailOrderKonselingVC: UIViewController {
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var patientAgeLabel: UILabel!
     @IBOutlet weak var patientGenderLabel: UILabel!
+    @IBOutlet weak var historyView: UIView!
     
     var requestOrder: RequestOrderVM?
     private let orderKonselingVM = OrderKonselingVM()
@@ -26,6 +27,8 @@ class DetailOrderKonselingVC: UIViewController {
         
         self.setupView()
         self.bindViewModel()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+        historyView.addGestureRecognizer(tapGesture)
     }
     
     fileprivate func bindViewModel() {
@@ -54,6 +57,12 @@ class DetailOrderKonselingVC: UIViewController {
         self.patientNameLabel.text = requestOrder?.orderUserName
         self.patientAgeLabel.text = "\(String(describing: requestOrder!.orderUserAge)) Tahun"
         self.patientGenderLabel.text = requestOrder?.orderUserGender
+    }
+    
+    @objc func handleTap() {
+        let historyVC = UIStoryboard.init(name: "Konselor", bundle: nil).instantiateViewController(identifier: "HistoryPatientVC") as HistoryPatientVC
+        historyVC.setPatientName(name: requestOrder?.orderUserName ?? "", id: requestOrder?.patientId ?? "")
+        self.navigationController?.pushViewController(historyVC, animated: true)
     }
     
     @IBAction func acceptOrderButtonDidClicked(_ sender: Any) {
