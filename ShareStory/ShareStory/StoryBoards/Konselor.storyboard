@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -891,7 +891,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9c-4B-z98">
-                                <rect key="frame" x="20" y="76" width="335" height="250"/>
+                                <rect key="frame" x="20" y="76" width="335" height="270"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-Ad-Xxf">
                                         <rect key="frame" x="97.666666666666686" y="23" width="140" height="138.66666666666669"/>
@@ -900,34 +900,53 @@
                                             <constraint firstAttribute="height" constant="140" id="vY0-mr-oHG"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indra Wahyudi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-VA-iTR">
-                                        <rect key="frame" x="20" y="170" width="295" height="31"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Konselor Psikologi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AK-qR-JaB">
-                                        <rect key="frame" x="20" y="209" width="295" height="21"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="27B-Bx-gto">
+                                        <rect key="frame" x="20" y="170" width="295" height="58"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indra Wahyudi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-VA-iTR">
+                                                <rect key="frame" x="0.0" y="0.0" width="295" height="30.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Konselor Psikologi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AK-qR-JaB">
+                                                <rect key="frame" x="0.0" y="37.333333333333314" width="295" height="20.666666666666671"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="I4f-b1-dF3">
+                                        <rect key="frame" x="148.33333333333334" y="239.66666666666669" width="38.333333333333343" height="20.333333333333314"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Nej-9S-0zc">
+                                                <rect key="frame" x="0.0" y="0.33333333333333215" width="22" height="20"/>
+                                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huo-CX-xvp">
+                                                <rect key="frame" x="27.999999999999996" y="0.0" width="10.333333333333332" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="0AK-qR-JaB" firstAttribute="top" secondItem="Chi-VA-iTR" secondAttribute="bottom" constant="8" id="5fG-b8-1gs"/>
-                                    <constraint firstAttribute="trailing" secondItem="0AK-qR-JaB" secondAttribute="trailing" constant="20" id="Bem-SL-GRE"/>
+                                    <constraint firstItem="27B-Bx-gto" firstAttribute="top" secondItem="2Ep-Ad-Xxf" secondAttribute="bottom" constant="8" id="0h9-YY-IKr"/>
                                     <constraint firstItem="2Ep-Ad-Xxf" firstAttribute="top" secondItem="j9c-4B-z98" secondAttribute="top" constant="22" id="Gy3-dF-Okw"/>
                                     <constraint firstItem="2Ep-Ad-Xxf" firstAttribute="centerX" secondItem="j9c-4B-z98" secondAttribute="centerX" id="H1P-BI-dMu"/>
-                                    <constraint firstAttribute="trailing" secondItem="Chi-VA-iTR" secondAttribute="trailing" constant="20" id="MZq-jx-EoO"/>
-                                    <constraint firstItem="0AK-qR-JaB" firstAttribute="leading" secondItem="j9c-4B-z98" secondAttribute="leading" constant="20" id="Uvg-ES-RJy"/>
-                                    <constraint firstAttribute="height" constant="250" id="YUK-Ow-81h"/>
-                                    <constraint firstItem="Chi-VA-iTR" firstAttribute="leading" secondItem="j9c-4B-z98" secondAttribute="leading" constant="20" id="oEG-fP-sxE"/>
-                                    <constraint firstItem="Chi-VA-iTR" firstAttribute="top" secondItem="2Ep-Ad-Xxf" secondAttribute="bottom" constant="8" id="xkm-lw-pA6"/>
+                                    <constraint firstAttribute="bottom" secondItem="I4f-b1-dF3" secondAttribute="bottom" constant="10" id="RMP-60-MXo"/>
+                                    <constraint firstAttribute="trailing" secondItem="27B-Bx-gto" secondAttribute="trailing" constant="20" id="Rgo-Rt-yws"/>
+                                    <constraint firstAttribute="height" constant="270" id="YUK-Ow-81h"/>
+                                    <constraint firstItem="I4f-b1-dF3" firstAttribute="centerX" secondItem="j9c-4B-z98" secondAttribute="centerX" id="bhz-GG-YI5"/>
+                                    <constraint firstItem="27B-Bx-gto" firstAttribute="leading" secondItem="j9c-4B-z98" secondAttribute="leading" constant="20" id="iKa-tB-aM5"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ze-HN-sIH">
-                                <rect key="frame" x="20" y="360" width="335" height="60"/>
+                                <rect key="frame" x="20" y="380" width="335" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.and.ellipsis.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jmW-Xu-l9R">
                                         <rect key="frame" x="290" y="15.666666666666668" width="30" height="27.999999999999982"/>
@@ -938,7 +957,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lihat Daftar Appointment Saya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACq-mg-dPl">
-                                        <rect key="frame" x="20" y="18" width="250" height="24"/>
+                                        <rect key="frame" x="20" y="18.333333333333314" width="250" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -987,12 +1006,13 @@
                         <outlet property="appointmentView" destination="6ze-HN-sIH" id="Nzq-50-Kfa"/>
                         <outlet property="konselorImageProfile" destination="2Ep-Ad-Xxf" id="1IT-Bp-ZkL"/>
                         <outlet property="konselorName" destination="Chi-VA-iTR" id="upO-Nm-YSq"/>
+                        <outlet property="ratingLabel" destination="huo-CX-xvp" id="h7S-h2-EZx"/>
                         <segue destination="5kT-7u-UV7" kind="show" identifier="appointment_segue" id="NAf-ud-0Ok"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iy-3H-8Pg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4613.04347826087" y="464.73214285714283"/>
+            <point key="canvasLocation" x="4612" y="464.03940886699507"/>
         </scene>
         <!--Appointment Saya-->
         <scene sceneID="SHK-sw-WhP">
@@ -1133,6 +1153,7 @@
         <image name="person.circle" catalog="system" width="64" height="60"/>
         <image name="person.circle.fill" catalog="system" width="64" height="60"/>
         <image name="person.crop.circle" catalog="system" width="64" height="60"/>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
         <image name="timer" catalog="system" width="64" height="60"/>
     </resources>
 </document>

@@ -23,17 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         locationManager.requestAlwaysAuthorization()
-        locationManager.delegate = self
         locationManager.startUpdatingLocation()
         return true
-    }
-    
-    fileprivate func getUserLocation() {
-        guard let userLocation = locationManager.location?.coordinate else {
-            return
-        }
-        
-        DataService.shared.userLocation = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
@@ -99,14 +90,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-}
-
-extension AppDelegate: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            self.getUserLocation()
-        }
-    }
 }
 

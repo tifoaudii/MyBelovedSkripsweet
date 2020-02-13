@@ -32,7 +32,7 @@ class ListKonselorCell: UITableViewCell {
         
         if konselor.rating > 0 {
             let ratingValue = konselor.rating / Double(konselor.patientCount)
-            self.ratingLabel.text = "\(round(10 * ratingValue) / 10)"
+            self.ratingLabel.text = "\(round(10 * ratingValue) / 10)  (\(konselor.patientCount))"
         } else {
             self.ratingLabel.text = "\(konselor.rating)"
         }

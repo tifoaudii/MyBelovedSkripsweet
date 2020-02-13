@@ -30,6 +30,7 @@ class MapVC: UIViewController {
         
         self.configureMapView()
         self.bindViewModel()
+        self.checkLocationAuthorization()
         centerButton.layer.cornerRadius = centerButton.frame.width / 2
         centerButton.layer.borderWidth = 0.5
         centerButton.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
@@ -61,6 +62,7 @@ class MapVC: UIViewController {
     
     fileprivate func configureMapView() {
         self.mapView.delegate = self
+        self.locationManager.delegate = self
         self.mapView.showsUserLocation = true
         guard let userLocation = locationManager.location?.coordinate else {
             return
@@ -94,7 +96,11 @@ class MapVC: UIViewController {
     }
 }
 
-extension MapVC: MKMapViewDelegate {
+extension MapVC: MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.configureMapView()
+    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         

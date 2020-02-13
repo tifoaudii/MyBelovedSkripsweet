@@ -14,6 +14,7 @@ class KonselorProfileVC: UIViewController {
     @IBOutlet weak var konselorImageProfile: UIImageView!
     @IBOutlet weak var konselorName: UILabel!
     @IBOutlet weak var appointmentView: UIView!
+    @IBOutlet weak var ratingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,14 @@ class KonselorProfileVC: UIViewController {
             self.konselorImageProfile.kf.setImage(with: URL(string: konselor.photoUrl))
             self.konselorImageProfile.layer.cornerRadius = self.konselorImageProfile.frame.width / 2
             self.konselorName.text = konselor.name
+            
+            if konselor.rating > 0 {
+                let ratingValue = konselor.rating / Double(konselor.patientCount)
+                self.ratingLabel.text = "\(round(10 * ratingValue) / 10)  (\(konselor.patientCount))"
+            } else {
+                self.ratingLabel.text = "\(konselor.rating)"
+            }
+            
         }) { [unowned self] in
             self.showErrorMessage()
         }
